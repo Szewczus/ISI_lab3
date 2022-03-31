@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -87,6 +88,8 @@ public class Controller implements Initializable {
         col14.setMinWidth(230);
         col15.setMinWidth(230);
 
+
+
         tableView.getColumns().add(col1);
         tableView.getColumns().add(col2);
         tableView.getColumns().add(col3);
@@ -113,27 +116,38 @@ public class Controller implements Initializable {
             public void handle(ActionEvent event) {
                 List <Data> danetxtList = wczytajDaneZPliku();
                 ObservableList<Data> data1 = FXCollections.observableArrayList(danetxtList);
-                col1.setCellValueFactory(new PropertyValueFactory<Data, String>("col1"));
-                col2.setCellValueFactory(new PropertyValueFactory<Data, String>("col2"));
-                col3.setCellValueFactory(new PropertyValueFactory<Data, String>("col3"));
-                col4.setCellValueFactory(new PropertyValueFactory<Data, String>("col4"));
-                col5.setCellValueFactory(new PropertyValueFactory<Data, String>("col5"));
-                col6.setCellValueFactory(new PropertyValueFactory<Data, String>("col6"));
-                col7.setCellValueFactory(new PropertyValueFactory<Data, String>("col7"));
-                col8.setCellValueFactory(new PropertyValueFactory<Data, String>("col8"));
-                col9.setCellValueFactory(new PropertyValueFactory<Data, String>("col9"));
-                col10.setCellValueFactory(new PropertyValueFactory<Data, String>("col10"));
-                col11.setCellValueFactory(new PropertyValueFactory<Data, String>("col11"));
-                col12.setCellValueFactory(new PropertyValueFactory<Data, String>("col12"));
-                col13.setCellValueFactory(new PropertyValueFactory<Data, String>("col13"));
-                col14.setCellValueFactory(new PropertyValueFactory<Data, String>("col14"));
-                col15.setCellValueFactory(new PropertyValueFactory<Data, String>("col15"));
+                setcellValues();
                 tableView.setItems(data1);
+            }
+        });
+
+        zapisz_txt.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
             }
         });
 
 
     }
+
+    private void setcellValues() {
+        col1.setCellValueFactory(new PropertyValueFactory<Data, String>("col1"));
+        col2.setCellValueFactory(new PropertyValueFactory<Data, String>("col2"));
+        col3.setCellValueFactory(new PropertyValueFactory<Data, String>("col3"));
+        col4.setCellValueFactory(new PropertyValueFactory<Data, String>("col4"));
+        col5.setCellValueFactory(new PropertyValueFactory<Data, String>("col5"));
+        col6.setCellValueFactory(new PropertyValueFactory<Data, String>("col6"));
+        col7.setCellValueFactory(new PropertyValueFactory<Data, String>("col7"));
+        col8.setCellValueFactory(new PropertyValueFactory<Data, String>("col8"));
+        col9.setCellValueFactory(new PropertyValueFactory<Data, String>("col9"));
+        col10.setCellValueFactory(new PropertyValueFactory<Data, String>("col10"));
+        col11.setCellValueFactory(new PropertyValueFactory<Data, String>("col11"));
+        col12.setCellValueFactory(new PropertyValueFactory<Data, String>("col12"));
+        col13.setCellValueFactory(new PropertyValueFactory<Data, String>("col13"));
+        col14.setCellValueFactory(new PropertyValueFactory<Data, String>("col14"));
+        col15.setCellValueFactory(new PropertyValueFactory<Data, String>("col15"));
+    }
+
     private List<Data> wczytajDaneZPliku() {
         List<Data> data = new ArrayList<>();
         try(BufferedReader br = new BufferedReader(new FileReader("katalog.txt"))) {
