@@ -23,7 +23,13 @@
 
 
         <GridPane fx:id="miejsce_na_dane">
+        </GridPane>
 
+        <GridPane fx:id="miejsce_na_przyciski">
+            <children>
+                <Button style="-fx-font: NORMAL 15 Tahoma;" text="Dodaj do tabelki"   GridPane.columnIndex="0" GridPane.rowIndex="4" fx:id="dodaj"/>
+                <Button style="-fx-font: NORMAL 15 Tahoma;" text="Zapisz"  GridPane.columnIndex="1" GridPane.rowIndex="4"  fx:id="zapisz"/>
+            </children>
         </GridPane>
     </children>
 
