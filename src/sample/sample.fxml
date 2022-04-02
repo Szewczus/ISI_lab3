@@ -6,6 +6,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TextArea?>
 <VBox fx:controller="sample.Controller" xmlns:fx="http://javafx.com/fxml" prefHeight="431.0" prefWidth="409.0" spacing="20.0" >
     <children>
         <HBox spacing="20">
@@ -19,6 +20,12 @@
 
         <TableView fx:id="tableView" GridPane.columnIndex="0" GridPane.rowIndex="1" style="-fx-font: NORMAL 10 Tahoma;">
         </TableView>
+
+
+        <GridPane fx:id="miejsce_na_dane">
+
+        </GridPane>
     </children>
+
 </VBox>
 
