@@ -1,158 +1,158 @@
 package sample;
 
 public class Data {
-    private String col1 ="";
-    private String col2 ="";
-    private String col3 ="";
-    private String col4 ="";
-    private String col5 ="";
-    private String col6 ="";
-    private String col7 ="";
-    private String col8 ="";
-    private String col9 ="";
-    private String col10 ="";
-    private String col11 ="";
-    private String col12 ="";
-    private String col13 ="";
-    private String col14 ="";
-    private String col15 ="";
+    private String manufacturer ="";
+    private String screenSize ="";
+    private String resolution ="";
+    private String matrixTexture ="";
+    private String touch ="";
+    private String processorName ="";
+    private String physicalCores ="";
+    private String clockSpeed ="";
+    private String ram ="";
+    private String discSize ="";
+    private String discType ="";
+    private String graphicCardName ="";
+    private String graphicCardMemory ="";
+    private String os ="";
+    private String discReader ="";
 
-    public String getCol1() {
-        return col1;
+    public String getManufacturer() {
+        return manufacturer;
     }
 
-    public void setCol1(String col1) {
-        this.col1 = col1;
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
     }
 
-    public String getCol2() {
-        return col2;
+    public String getScreenSize() {
+        return screenSize;
     }
 
-    public void setCol2(String col2) {
-        this.col2 = col2;
+    public void setScreenSize(String screenSize) {
+        this.screenSize = screenSize;
     }
 
-    public String getCol3() {
-        return col3;
+    public String getResolution() {
+        return resolution;
     }
 
-    public void setCol3(String col3) {
-        this.col3 = col3;
+    public void setResolution(String resolution) {
+        this.resolution = resolution;
     }
 
-    public String getCol4() {
-        return col4;
+    public String getMatrixTexture() {
+        return matrixTexture;
     }
 
-    public void setCol4(String col4) {
-        this.col4 = col4;
+    public void setMatrixTexture(String matrixTexture) {
+        this.matrixTexture = matrixTexture;
     }
 
-    public String getCol5() {
-        return col5;
+    public String getTouch() {
+        return touch;
     }
 
-    public void setCol5(String col5) {
-        this.col5 = col5;
+    public void setTouch(String touch) {
+        this.touch = touch;
     }
 
-    public String getCol6() {
-        return col6;
+    public String getProcessorName() {
+        return processorName;
     }
 
-    public void setCol6(String col6) {
-        this.col6 = col6;
+    public void setProcessorName(String processorName) {
+        this.processorName = processorName;
     }
 
-    public String getCol7() {
-        return col7;
+    public String getPhysicalCores() {
+        return physicalCores;
     }
 
-    public void setCol7(String col7) {
-        this.col7 = col7;
+    public void setPhysicalCores(String physicalCores) {
+        this.physicalCores = physicalCores;
     }
 
-    public String getCol8() {
-        return col8;
+    public String getClockSpeed() {
+        return clockSpeed;
     }
 
-    public void setCol8(String col8) {
-        this.col8 = col8;
+    public void setClockSpeed(String clockSpeed) {
+        this.clockSpeed = clockSpeed;
     }
 
-    public String getCol9() {
-        return col9;
+    public String getRam() {
+        return ram;
     }
 
-    public void setCol9(String col9) {
-        this.col9 = col9;
+    public void setRam(String ram) {
+        this.ram = ram;
     }
 
-    public String getCol10() {
-        return col10;
+    public String getDiscSize() {
+        return discSize;
     }
 
-    public void setCol10(String col10) {
-        this.col10 = col10;
+    public void setDiscSize(String discSize) {
+        this.discSize = discSize;
     }
 
-    public String getCol11() {
-        return col11;
+    public String getDiscType() {
+        return discType;
     }
 
-    public void setCol11(String col11) {
-        this.col11 = col11;
+    public void setDiscType(String discType) {
+        this.discType = discType;
     }
 
-    public String getCol12() {
-        return col12;
+    public String getGraphicCardName() {
+        return graphicCardName;
     }
 
-    public void setCol12(String col12) {
-        this.col12 = col12;
+    public void setGraphicCardName(String graphicCardName) {
+        this.graphicCardName = graphicCardName;
     }
 
-    public String getCol13() {
-        return col13;
+    public String getGraphicCardMemory() {
+        return graphicCardMemory;
     }
 
-    public void setCol13(String col13) {
-        this.col13 = col13;
+    public void setGraphicCardMemory(String graphicCardMemory) {
+        this.graphicCardMemory = graphicCardMemory;
     }
 
-    public String getCol14() {
-        return col14;
+    public String getOs() {
+        return os;
     }
 
-    public void setCol14(String col14) {
-        this.col14 = col14;
+    public void setOs(String os) {
+        this.os = os;
     }
 
-    public String getCol15() {
-        return col15;
+    public String getDiscReader() {
+        return discReader;
     }
 
-    public void setCol15(String col15) {
-        this.col15 = col15;
+    public void setDiscReader(String discReader) {
+        this.discReader = discReader;
     }
 
     public String getColumnsValue(){
-        return getCol1() + ";"
-                + getCol2()+";"
-                + getCol3()+";"
-                + getCol4()+";"
-                + getCol5() + ";"
-                + getCol6() + ";"
-                + getCol7() + ";"
-                + getCol8() + ";"
-                + getCol9() + ";"
-                + getCol10() + ";"
-                + getCol11() +";"
-                + getCol12() +";"
-                + getCol13() + ";"
-                + getCol14() +";"
-                + getCol15()+";"+ "\n";
+        return getManufacturer() + ";"
+                + getScreenSize()+";"
+                + getResolution()+";"
+                + getMatrixTexture()+";"
+                + getTouch() + ";"
+                + getProcessorName() + ";"
+                + getPhysicalCores() + ";"
+                + getClockSpeed() + ";"
+                + getRam() + ";"
+                + getDiscSize() + ";"
+                + getDiscType() +";"
+                + getGraphicCardName() +";"
+                + getGraphicCardMemory() + ";"
+                + getOs() +";"
+                + getDiscReader()+";"+ "\n";
 
     }
 

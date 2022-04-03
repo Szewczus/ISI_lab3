@@ -57,11 +57,11 @@ public class Controller implements Initializable {
         classReader = new ClassReader(Data.class);
         classReader.readClassMethods(); //metoda przechowuje metody klasy Data
 
-        int j = 1;
+        int j = 0;
         for(String columHeader : nazwy_kolumn){
             TableColumn<Data, String> col1 = new TableColumn<>(columHeader);
             col1.setMinWidth(100);
-            col1.setCellValueFactory(new PropertyValueFactory<Data, String>("col"+j));
+            col1.setCellValueFactory(new PropertyValueFactory<Data, String>(classReader.getFields().get(j).getName()));
             col1.setCellFactory(TextFieldTableCell.<Data>forTableColumn());
             col1.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<Data, String>>() {
                 @Override
