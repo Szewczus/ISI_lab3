@@ -13,6 +13,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import javax.xml.bind.JAXBException;
 import java.io.*;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -94,6 +95,17 @@ public class Controller implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 wczytajZPlikuIUmiescWTabeli(nazwy_kolumn);
+            }
+        });
+
+        wczytaj_xml.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    wczytaj_xml();
+                } catch (JAXBException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -206,13 +218,23 @@ public class Controller implements Initializable {
 
     private List<Data> wczytajDaneZPlikuXML(){
         List<Data> data = tableView.getItems();
+        DataList dataList = new DataList(data);
         DOMBuider domBuider = new DOMBuider();
-        domBuider.saveToXML(data);
+        try {
+            domBuider.saveToXML(dataList);
+        } catch (JAXBException e) {
+            e.printStackTrace();
+        }
 
         return data;
     }
 
 
+    private void wczytaj_xml() throws JAXBException {
+        List<Data> laptops = tableView.getItems();
+        ReadFromXML readFromXML = new ReadFromXML();
+        readFromXML.readFromXML(laptops, tableView);
+    }
 
 
 

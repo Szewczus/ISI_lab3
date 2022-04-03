@@ -1,14 +1,20 @@
 package sample;
 
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.*;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.lang.reflect.InvocationTargetException;
@@ -17,14 +23,14 @@ import java.util.Date;
 import java.util.List;
 
 public class DOMBuider {
-    public void saveToXML(List<Data> dataList){
+    public void saveToXMLOld(List<Data> dataList){
         DocumentBuilder builder;
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         try {
             builder = factory.newDocumentBuilder();
             Document doc = builder.newDocument();
             Element laptops = doc.createElement("laptops");
-            laptops.setAttribute("moddate", new Date().toString());
+            //laptops.setAttribute("moddate", new Date().toString());
 
             ClassReader classReader = new ClassReader(Data.class);
             classReader.readClassMethods();
@@ -54,6 +60,23 @@ public class DOMBuider {
         } catch (ParserConfigurationException  | FileNotFoundException | TransformerException | InvocationTargetException | IllegalAccessException e) {
             e.printStackTrace();
         }
-
     }
+
+    public void saveToXML(DataList dataList) throws JAXBException {
+        JAXBContext ctx = JAXBContext.newInstance(DataList.class);
+        Marshaller marshaller = ctx.createMarshaller();
+        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+        File file = chooseFile();
+        marshaller.marshal(dataList, file);
+    }
+
+    private File chooseFile() {
+        FileChooser fileChooser = new FileChooser();
+        FileChooser.ExtensionFilter extensionFilter = new FileChooser.ExtensionFilter("XML files (*.xml)", "*.xml");
+        fileChooser.getExtensionFilters().add(extensionFilter);
+        File openedFile = fileChooser.showSaveDialog(new Stage());
+        return openedFile;
+    }
+
+
 }
