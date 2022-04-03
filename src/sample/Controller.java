@@ -148,6 +148,13 @@ public class Controller implements Initializable {
             }
         });
 
+        zapisz_xml.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                wczytajDaneZPlikuXML();
+            }
+        });
+
 
 
     }
@@ -198,7 +205,10 @@ public class Controller implements Initializable {
 
 
     private List<Data> wczytajDaneZPlikuXML(){
-        List<Data> data = new ArrayList<>();
+        List<Data> data = tableView.getItems();
+        DOMBuider domBuider = new DOMBuider();
+        domBuider.saveToXML(data);
+
         return data;
     }
 
