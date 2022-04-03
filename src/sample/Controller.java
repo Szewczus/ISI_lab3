@@ -10,6 +10,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.GridPane;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 import java.io.*;
 import java.lang.reflect.InvocationTargetException;
@@ -100,15 +102,16 @@ public class Controller implements Initializable {
             public void handle(ActionEvent event) {
                 miejsce_na_dane.setVisible(true);
                 List <Data> danetxtList = tableView.getItems();
+                String absolutePth = chooseFile();
                 FileWriter w = null;
                 try {
-                    w = new FileWriter("katalog2.txt");
+                    w = new FileWriter(absolutePth);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
                 for(Data data: danetxtList){
                     try {
-                        w.write(data.getCol1() + ";" + data.getCol2()+";"+ data.getCol3()+";"+ data.getCol4()+";"+data.getCol5() + ";" + data.getCol6() + ";" + data.getCol7() + ";" + data.getCol8() + ";" + data.getCol9() + ";" + data.getCol10() + ";" + data.getCol11() +";"+ data.getCol12() +";" + data.getCol13() + ";"+"\n");
+                        w.write(data.getColumnsValue());
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -159,8 +162,8 @@ public class Controller implements Initializable {
 
     private List<Data> wczytajDaneZPlikuTXT() {
         List<Data> data = new ArrayList<>();
-
-        try(BufferedReader br = new BufferedReader(new FileReader("katalog.txt"))) {
+        String absolutePath = chooseFile();
+        try(BufferedReader br = new BufferedReader(new FileReader(absolutePath))) {
             String line = br.readLine();
             while (line != null) {
                 Data data1 = new Data();
@@ -170,16 +173,19 @@ public class Controller implements Initializable {
                 line = br.readLine();
             }
 
-            System.out.println(data.toString());
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
+        } catch (IOException | InvocationTargetException | IllegalAccessException e) {
             e.printStackTrace();
         }
         return data;
+    }
+
+    private String chooseFile() {
+        FileChooser fileChooser = new FileChooser();
+        FileChooser.ExtensionFilter extensionFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
+        fileChooser.getExtensionFilters().add(extensionFilter);
+        File openedFile = fileChooser.showOpenDialog(new Stage());
+        String absolutePath = openedFile.getAbsolutePath();
+        return absolutePath;
     }
 
     private void setData1(Data data1, String[] cecha, ClassReader classReader) throws InvocationTargetException, IllegalAccessException {

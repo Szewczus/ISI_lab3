@@ -1,21 +1,21 @@
 package sample;
 
 public class Data {
-    private String col1;
-    private String col2;
-    private String col3;
-    private String col4;
-    private String col5;
-    private String col6;
-    private String col7;
-    private String col8;
-    private String col9;
-    private String col10;
-    private String col11;
-    private String col12;
-    private String col13;
-    private String col14;
-    private String col15;
+    private String col1 ="";
+    private String col2 ="";
+    private String col3 ="";
+    private String col4 ="";
+    private String col5 ="";
+    private String col6 ="";
+    private String col7 ="";
+    private String col8 ="";
+    private String col9 ="";
+    private String col10 ="";
+    private String col11 ="";
+    private String col12 ="";
+    private String col13 ="";
+    private String col14 ="";
+    private String col15 ="";
 
     public String getCol1() {
         return col1;
@@ -136,4 +136,25 @@ public class Data {
     public void setCol15(String col15) {
         this.col15 = col15;
     }
+
+    public String getColumnsValue(){
+        return getCol1() + ";"
+                + getCol2()+";"
+                + getCol3()+";"
+                + getCol4()+";"
+                + getCol5() + ";"
+                + getCol6() + ";"
+                + getCol7() + ";"
+                + getCol8() + ";"
+                + getCol9() + ";"
+                + getCol10() + ";"
+                + getCol11() +";"
+                + getCol12() +";"
+                + getCol13() + ";"
+                + getCol14() +";"
+                + getCol15()+";"+ "\n";
+
+    }
+
+
 }
