@@ -20,7 +20,7 @@ public interface KatalogRepo extends JpaRepository<KatalogEntity, Long> {
     @Query(value = "select * from data_entity d where d.matrix_texture=:matrix_texture", nativeQuery = true)
     public List<KatalogEntity> getRowsByMatrixTexture(@Param("matrix_texture")String matrix_texture);
 
-    @Query(value = "select * from data_entity d where d.screen_size=:screen_size", nativeQuery = true)
-    public List<KatalogEntity> getRowsByScreenSize(@Param("screen_size")String screen_size);
+    @Query(value = "select * from data_entity", nativeQuery = true)
+    public List<KatalogEntity> getAll();
 
 }

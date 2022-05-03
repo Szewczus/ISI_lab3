@@ -6,7 +6,7 @@ import com.example.soapserwer.entity.ResponseEntity1;
 import com.example.soapserwer.katalog001.GetResponse;
 import com.example.soapserwer.katalog001.GetRowCountByProducentName;
 import com.example.soapserwer.katalog001.GetRowsByMatrixTexture;
-import com.example.soapserwer.katalog001.GetRowsByScreenSize;
+import com.example.soapserwer.katalog001.GetRowsByProportions;
 import com.example.soapserwer.services.KatalogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
@@ -40,10 +40,10 @@ public class KatalogController {
         return getResponse;
     }
 
-    @PayloadRoot(namespace = "http://ewa.pl/soap-example", localPart = "getRowsByScreenSize")
+    @PayloadRoot(namespace = "http://ewa.pl/soap-example", localPart = "getRowsByProportions")
     @ResponsePayload
-    public GetResponse getRowsByScreenSize(@RequestPayload GetRowsByScreenSize getRowsByScreenSize){
-        ResponseEntity1 responseEntity1 = katalogService.getRowsByScreenSize(getRowsByScreenSize.getNazwa());
+    public GetResponse getRowsByProportions(@RequestPayload GetRowsByProportions getRowsByProportions){
+        ResponseEntity1 responseEntity1 = katalogService.getRowsByProportions(getRowsByProportions.getNazwa());
         GetResponse getResponse = new GetResponse();
         getResponse.setCount(responseEntity1.getCount());
         mapToComputerList(responseEntity1, getResponse);
