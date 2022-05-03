@@ -3,10 +3,11 @@ package com.example.soapserwer.controllers;
 
 import com.example.soapserwer.entity.KatalogEntity;
 import com.example.soapserwer.entity.ResponseEntity1;
-import com.example.soapserwer.services.KatalogService;
 import com.example.soapserwer.katalog001.GetResponse;
 import com.example.soapserwer.katalog001.GetRowCountByProducentName;
-
+import com.example.soapserwer.katalog001.GetRowsByMatrixTexture;
+import com.example.soapserwer.katalog001.GetRowsByScreenSize;
+import com.example.soapserwer.services.KatalogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
@@ -25,6 +26,31 @@ public class KatalogController {
         ResponseEntity1 responseEntity1 = katalogService.getRows(getRowCountByProducentName.getNazwa());
         GetResponse getResponse = new GetResponse();
         getResponse.setCount(responseEntity1.getCount());
+        mapToComputerList(responseEntity1, getResponse);
+        return getResponse;
+    }
+
+    @PayloadRoot(namespace = "http://ewa.pl/soap-example", localPart = "getRowsByMatrixTexture")
+    @ResponsePayload
+    public GetResponse getMatrixTexture(@RequestPayload GetRowsByMatrixTexture getRowsByMatrixTexture){
+        ResponseEntity1 responseEntity1 = katalogService.getMatrixTexture(getRowsByMatrixTexture.getNazwa());
+        GetResponse getResponse = new GetResponse();
+        getResponse.setCount(responseEntity1.getCount());
+        mapToComputerList(responseEntity1, getResponse);
+        return getResponse;
+    }
+
+    @PayloadRoot(namespace = "http://ewa.pl/soap-example", localPart = "getRowsByScreenSize")
+    @ResponsePayload
+    public GetResponse getRowsByScreenSize(@RequestPayload GetRowsByScreenSize getRowsByScreenSize){
+        ResponseEntity1 responseEntity1 = katalogService.getRowsByScreenSize(getRowsByScreenSize.getNazwa());
+        GetResponse getResponse = new GetResponse();
+        getResponse.setCount(responseEntity1.getCount());
+        mapToComputerList(responseEntity1, getResponse);
+        return getResponse;
+    }
+
+    private void mapToComputerList(ResponseEntity1 responseEntity1, GetResponse getResponse) {
         for(KatalogEntity entity : responseEntity1.getComputer()){
             GetResponse.ComputerList computerList = new GetResponse.ComputerList();
             computerList.setId(entity.getId());
@@ -45,6 +71,5 @@ public class KatalogController {
             computerList.setDiscReader(entity.getDiscReader());
             getResponse.getComputerList().add(computerList);
         }
-        return getResponse;
     }
 }

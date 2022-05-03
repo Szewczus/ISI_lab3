@@ -28,6 +28,19 @@ public class KatalogService {
         responseEntity1.setCount(count);
         responseEntity1.setComputer(katalogRepo.getRowsByManufacturer(manufacturer));
         return responseEntity1;
+    }
 
+    public ResponseEntity1 getMatrixTexture(String matrixTexture){
+        ResponseEntity1 responseEntity1 = new ResponseEntity1();
+        responseEntity1.setComputer(katalogRepo.getRowsByMatrixTexture(matrixTexture));
+        responseEntity1.setCount(Long.parseLong(String.valueOf(katalogRepo.getRowsByMatrixTexture(matrixTexture).size())));
+        return responseEntity1;
+    }
+
+    public ResponseEntity1 getRowsByScreenSize(String screenSize){
+        ResponseEntity1 responseEntity1 = new ResponseEntity1();
+        responseEntity1.setComputer(katalogRepo.getRowsByScreenSize(screenSize));
+        responseEntity1.setCount(Long.parseLong(String.valueOf(katalogRepo.getRowsByScreenSize(screenSize).size())));
+        return responseEntity1;
     }
 }

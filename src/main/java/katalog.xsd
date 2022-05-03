@@ -8,6 +8,22 @@
         </xs:complexType>
     </xs:element>
 
+    <xs:element name="getRowsByMatrixTexture">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="nazwa" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getRowsByScreenSize">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="nazwa" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
     <xs:element name="getResponse">
         <xs:complexType>
             <xs:sequence>
