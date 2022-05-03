@@ -1,5 +1,5 @@
 
-package katalog001;
+package com.example.soapserwer.katalog001;
 
 import java.util.ArrayList;
 import java.util.List;

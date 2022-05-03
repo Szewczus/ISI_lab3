@@ -4,16 +4,14 @@ package com.example.soapserwer.controllers;
 import com.example.soapserwer.entity.KatalogEntity;
 import com.example.soapserwer.entity.ResponseEntity1;
 import com.example.soapserwer.services.KatalogService;
-import katalog001.GetResponse;
-import katalog001.GetRowCountByProducentName;
+import com.example.soapserwer.katalog001.GetResponse;
+import com.example.soapserwer.katalog001.GetRowCountByProducentName;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
-
-import java.util.List;
 
 @Endpoint
 public class KatalogController {
