@@ -6,13 +6,17 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.net.URL;
+import java.nio.file.Paths;
 import java.util.Objects;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("../../resources/sample.fxml"));
+        URL url = Paths.get("E:\\studia\\3_semestr_mgr\\ISI\\lab3\\src\\main\\resources\\sample.fxml").toUri().toURL();
+        Parent root = FXMLLoader.load(url);
+        //Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("E:\\studia\\3_semestr_mgr\\ISI\\lab3\\src\\main\\resources\\sample.fxml")));
         primaryStage.setTitle("Integracja systemów - Ewa Szewczak");
         primaryStage.setScene(new Scene(root, 900, 475));
         primaryStage.show();
