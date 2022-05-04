@@ -18,11 +18,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="aplikacjaKlienta" />
         <module name="demo" />
         <module name="soapSerwer" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="aplikacjaKlienta" target="8" />
       <module name="demo" target="1.8" />
       <module name="JavaFxApplication" target="8" />
       <module name="soapServer" target="8" />

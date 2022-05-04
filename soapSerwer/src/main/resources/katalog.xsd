@@ -1,28 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ewa.pl/soap-example" targetNamespace="http://ewa.pl/soap-example">
-    <xs:element name="getRowCountByProducentName">
+    <xs:element name="getRows">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="nazwa" type="xs:string"/>
+                <xs:element name="manufacturer" type="xs:string"/>
+                <xs:element name="matrixTexture" type="xs:string"/>
+                <xs:element name="proportions" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
 
-    <xs:element name="getRowsByMatrixTexture">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="nazwa" type="xs:string"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-
-    <xs:element name="getRowsByProportions">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="nazwa" type="xs:string"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
 
     <xs:element name="getResponse">
         <xs:complexType>

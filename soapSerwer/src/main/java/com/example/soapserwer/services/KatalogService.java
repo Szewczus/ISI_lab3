@@ -2,6 +2,7 @@ package com.example.soapserwer.services;
 
 import com.example.soapserwer.entity.KatalogEntity;
 import com.example.soapserwer.entity.ResponseEntity1;
+import com.example.soapserwer.katalog001.GetRows;
 import com.example.soapserwer.repos.KatalogRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,25 @@ public class KatalogService {
     @Autowired
     private KatalogRepo katalogRepo;
 
-    public ResponseEntity1 getRows(String manufacturer){
+    public ResponseEntity1 getRows(GetRows getRows){
+
+        ResponseEntity1 responseEntity1 = new ResponseEntity1();
+
+        if(getRows.getManufacturer()!=null){
+            responseEntity1 = getRowsByProducentName(getRows.getManufacturer());
+        }
+
+        if(getRows.getMatrixTexture()!=null){
+            responseEntity1 = getMatrixTexture(getRows.getMatrixTexture());
+        }
+
+        if (getRows.getProportions()!=null){
+            responseEntity1 = getRowsByProportions(getRows.getProportions());
+        }
+        return responseEntity1;
+    }
+
+    public ResponseEntity1 getRowsByProducentName(String manufacturer){
         Long count = 0L;
         try {
            count= katalogRepo.getCoutRowByManufacturer(manufacturer);

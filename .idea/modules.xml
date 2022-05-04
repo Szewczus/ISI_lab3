@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/JavaFxApplication.iml" filepath="$PROJECT_DIR$/JavaFxApplication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/aplikacjaKlienta/aplikacjaKlienta.iml" filepath="$PROJECT_DIR$/aplikacjaKlienta/aplikacjaKlienta.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo/demo.iml" filepath="$PROJECT_DIR$/demo/demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/soapSerwer/soapSerwer.iml" filepath="$PROJECT_DIR$/soapSerwer/soapSerwer.iml" />
     </modules>

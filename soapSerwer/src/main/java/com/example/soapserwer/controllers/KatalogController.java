@@ -4,9 +4,7 @@ package com.example.soapserwer.controllers;
 import com.example.soapserwer.entity.KatalogEntity;
 import com.example.soapserwer.entity.ResponseEntity1;
 import com.example.soapserwer.katalog001.GetResponse;
-import com.example.soapserwer.katalog001.GetRowCountByProducentName;
-import com.example.soapserwer.katalog001.GetRowsByMatrixTexture;
-import com.example.soapserwer.katalog001.GetRowsByProportions;
+import com.example.soapserwer.katalog001.GetRows;
 import com.example.soapserwer.services.KatalogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
@@ -20,35 +18,16 @@ public class KatalogController {
     @Autowired
     private KatalogService katalogService;
 
-    @PayloadRoot(namespace = "http://ewa.pl/soap-example", localPart = "getRowCountByProducentName")
+    @PayloadRoot(namespace = "http://ewa.pl/soap-example", localPart = "getRows")
     @ResponsePayload
-    public GetResponse getRowCountByProducentName(@RequestPayload GetRowCountByProducentName getRowCountByProducentName){
-        ResponseEntity1 responseEntity1 = katalogService.getRows(getRowCountByProducentName.getNazwa());
+    public GetResponse getRows(@RequestPayload GetRows getRows){
         GetResponse getResponse = new GetResponse();
+        ResponseEntity1 responseEntity1 = katalogService.getRows(getRows);
         getResponse.setCount(responseEntity1.getCount());
         mapToComputerList(responseEntity1, getResponse);
-        return getResponse;
+        return  getResponse;
     }
 
-    @PayloadRoot(namespace = "http://ewa.pl/soap-example", localPart = "getRowsByMatrixTexture")
-    @ResponsePayload
-    public GetResponse getMatrixTexture(@RequestPayload GetRowsByMatrixTexture getRowsByMatrixTexture){
-        ResponseEntity1 responseEntity1 = katalogService.getMatrixTexture(getRowsByMatrixTexture.getNazwa());
-        GetResponse getResponse = new GetResponse();
-        getResponse.setCount(responseEntity1.getCount());
-        mapToComputerList(responseEntity1, getResponse);
-        return getResponse;
-    }
-
-    @PayloadRoot(namespace = "http://ewa.pl/soap-example", localPart = "getRowsByProportions")
-    @ResponsePayload
-    public GetResponse getRowsByProportions(@RequestPayload GetRowsByProportions getRowsByProportions){
-        ResponseEntity1 responseEntity1 = katalogService.getRowsByProportions(getRowsByProportions.getNazwa());
-        GetResponse getResponse = new GetResponse();
-        getResponse.setCount(responseEntity1.getCount());
-        mapToComputerList(responseEntity1, getResponse);
-        return getResponse;
-    }
 
     private void mapToComputerList(ResponseEntity1 responseEntity1, GetResponse getResponse) {
         for(KatalogEntity entity : responseEntity1.getComputer()){

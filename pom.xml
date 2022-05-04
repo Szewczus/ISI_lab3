@@ -8,6 +8,9 @@
     <artifactId>JavaFxApplication</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>aplikacjaKlienta</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
