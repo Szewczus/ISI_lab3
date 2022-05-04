@@ -16,7 +16,10 @@ public class KatalogService {
     @Autowired
     private KatalogRepo katalogRepo;
 
+    private GetRows getRows;
+
     public ResponseEntity1 getRows(GetRows getRows){
+        this.getRows = getRows;
 
         ResponseEntity1 responseEntity1 = new ResponseEntity1();
 
@@ -41,7 +44,7 @@ public class KatalogService {
         }
 
         if(getRows.getMatrixTexture()!=null && getRows.getManufacturer()==null && getRows.getProportions()==null){
-            responseEntity1 = getMatrixTexture(getRows.getMatrixTexture());
+            responseEntity1 = getRowsByMatrixTexture(getRows.getMatrixTexture());
         }
 
         if (getRows.getProportions()!=null && getRows.getManufacturer()==null && getRows.getMatrixTexture()==null){
@@ -74,14 +77,27 @@ public class KatalogService {
     private ResponseEntity1 filterByProportions(GetRows getRows, List<KatalogEntity> katalogEntity) {
         String[] proportionsArray = getRows.getProportions().split("x");
         ResponseEntity1 responseEntity1 = new ResponseEntity1();
-        return getResponseBasedOdProportions(proportionsArray, responseEntity1, katalogEntity);
+        getResponseBasedOnProportions(proportionsArray, responseEntity1, katalogEntity);
+        if(getRows.getProportions()!=null){
+            responseEntity1.setCountComputersByProportions((long) getRowsByProportions(this.getRows.getProportions()).getComputer().size());
+        }
+        if(getRows.getManufacturer()!=null){
+            responseEntity1.setCountComputersByManufacturer((long) getRowsByProducentName(this.getRows.getManufacturer()).getComputer().size());
+        }
+        if(getRows.getMatrixTexture()!=null){
+            responseEntity1.setCountComputersByMatrixType((long) getRowsByMatrixTexture(this.getRows.getMatrixTexture()).getComputer().size());
+        }
+        return responseEntity1;
     }
 
     public ResponseEntity1 getRowsByProducentNameAndMatrix(GetRows getRows){
         List<KatalogEntity> katalogEntity = new ArrayList<>();
         katalogEntity.addAll(katalogRepo.getRowsByManufacturerAndMatrixTexture(getRows.getManufacturer(), getRows.getMatrixTexture()));
         ResponseEntity1 responseEntity1 = new ResponseEntity1();
-        return getResponseEntity1(responseEntity1, katalogEntity);
+        responseEntity1.setCountComputersByManufacturer((long) getRowsByProducentName(this.getRows.getManufacturer()).getComputer().size());
+        responseEntity1.setCountComputersByMatrixType((long)getRowsByMatrixTexture(this.getRows.getMatrixTexture()).getComputer().size());
+        responseEntity1.setComputer(katalogEntity);
+        return responseEntity1;
     }
 
 
@@ -96,15 +112,15 @@ public class KatalogService {
         }
 
         ResponseEntity1 responseEntity1 = new ResponseEntity1();
-        responseEntity1.setCount(count);
+        responseEntity1.setCountComputersByManufacturer(count);
         responseEntity1.setComputer(katalogRepo.getRowsByManufacturer(manufacturer));
         return responseEntity1;
     }
 
-    public ResponseEntity1 getMatrixTexture(String matrixTexture){
+    public ResponseEntity1 getRowsByMatrixTexture(String matrixTexture){
         ResponseEntity1 responseEntity1 = new ResponseEntity1();
         responseEntity1.setComputer(katalogRepo.getRowsByMatrixTexture(matrixTexture));
-        responseEntity1.setCount(Long.parseLong(String.valueOf(katalogRepo.getRowsByMatrixTexture(matrixTexture).size())));
+        responseEntity1.setCountComputersByMatrixType(Long.parseLong(String.valueOf(katalogRepo.getRowsByMatrixTexture(matrixTexture).size())));
         return responseEntity1;
     }
 
@@ -112,10 +128,10 @@ public class KatalogService {
         String[] proportionsArray = proportions.split("x");
         ResponseEntity1 responseEntity1 = new ResponseEntity1();
         List<KatalogEntity> katalogEntityList = katalogRepo.getAll();
-        return getResponseBasedOdProportions(proportionsArray, responseEntity1, katalogEntityList);
+        return getResponseBasedOnProportions(proportionsArray, responseEntity1, katalogEntityList);
     }
 
-    private ResponseEntity1 getResponseBasedOdProportions(String[] proportionsArray, ResponseEntity1 responseEntity1, List<KatalogEntity> katalogEntityList) {
+    private ResponseEntity1 getResponseBasedOnProportions(String[] proportionsArray, ResponseEntity1 responseEntity1, List<KatalogEntity> katalogEntityList) {
         List<KatalogEntity> katalogEntityResoultList = new ArrayList<>();
         for(KatalogEntity katalogEntity : katalogEntityList){
             String resolution = katalogEntity.getResolution();
@@ -134,14 +150,9 @@ public class KatalogService {
                 katalogEntityResoultList.add(katalogEntity);
             }
         }
-
-        return getResponseEntity1(responseEntity1, katalogEntityResoultList);
-    }
-
-    private ResponseEntity1 getResponseEntity1(ResponseEntity1 responseEntity1, List<KatalogEntity> katalogEntityResoultList) {
         responseEntity1.setComputer(katalogEntityResoultList);
-        responseEntity1.setCount((long) katalogEntityResoultList.size());
         return responseEntity1;
     }
+
 
 }

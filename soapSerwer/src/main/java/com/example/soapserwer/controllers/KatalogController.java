@@ -23,7 +23,15 @@ public class KatalogController {
     public GetResponse getRows(@RequestPayload GetRows getRows){
         GetResponse getResponse = new GetResponse();
         ResponseEntity1 responseEntity1 = katalogService.getRows(getRows);
-        getResponse.setCount(responseEntity1.getCount());
+        if(getRows.getManufacturer()!=null){
+            getResponse.setCountComputersByManufacturer(responseEntity1.getCountComputersByManufacturer());
+        }
+        if(getRows.getMatrixTexture()!=null){
+            getResponse.setCountComputersByMatrixType(responseEntity1.getCountComputersByMatrixType());
+        }
+        if(getRows.getProportions()!=null){
+            getResponse.setCountComputersByProportions(responseEntity1.getCountComputersByProportions());
+        }
         mapToComputerList(responseEntity1, getResponse);
         return  getResponse;
     }
