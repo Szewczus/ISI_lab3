@@ -15,4 +15,4 @@ logging:
   file:
     name: lab3_isi.log
 server:
-  port: 8080
+  port: 8082

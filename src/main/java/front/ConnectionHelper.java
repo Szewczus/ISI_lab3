@@ -13,7 +13,7 @@ public class ConnectionHelper {
     private final String TAG = "sample.ConnectionHelper";
     public ConnectionHelper(){
         objectMapper = new ObjectMapper();
-        connectionBean = new ConnectionBean("http://localhost:8080/data");
+        connectionBean = new ConnectionBean("http://localhost:8082/data");
     }
 
     public List<DataDto> showData() throws IOException {

@@ -44,7 +44,7 @@ public class KatalogService {
         List<KatalogEntity> katalogEntityResoultList = new ArrayList<>();
         for(KatalogEntity katalogEntity :katalogEntityList){
             String resolution = katalogEntity.getResolution();
-            if(resolution!=null && !resolution.equals("")){
+            if(resolution==null || resolution.equals("")){
                 continue;
             }
             String[] resolutions = resolution.split("x");
