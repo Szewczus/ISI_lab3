@@ -684,3 +684,192 @@ Caused by: java.lang.ClassNotFoundException: org.hibernate.jpa.HibernatePersiste
 2022-05-04 15:16:50.463  INFO 29272 --- [http-nio-8081-exec-1] o.s.w.t.http.MessageDispatcherServlet    : Initializing Servlet 'messageDispatcherServlet'
 2022-05-04 15:16:50.466  INFO 29272 --- [http-nio-8081-exec-1] o.s.ws.soap.saaj.SaajSoapMessageFactory  : Creating SAAJ 1.3 MessageFactory with SOAP 1.1 Protocol
 2022-05-04 15:16:50.477  INFO 29272 --- [http-nio-8081-exec-1] o.s.w.t.http.MessageDispatcherServlet    : Completed initialization in 14 ms
+2022-05-04 15:43:52.955  INFO 29272 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-05-04 15:43:52.956  INFO 29272 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-05-04 15:43:52.961  INFO 29272 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-05-04 15:43:52.962  INFO 29272 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-05-04 15:43:57.946  INFO 28052 --- [restartedMain] c.e.soapserwer.SoapSerwerApplication     : Starting SoapSerwerApplication using Java 1.8.0_291 on DESKTOP-RSTROBF with PID 28052 (E:\studia\3_semestr_mgr\ISI\lab3\soapSerwer\target\classes started by ewus9 in E:\studia\3_semestr_mgr\ISI\lab3)
+2022-05-04 15:43:57.949  INFO 28052 --- [restartedMain] c.e.soapserwer.SoapSerwerApplication     : No active profile set, falling back to default profiles: default
+2022-05-04 15:43:57.987  INFO 28052 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-05-04 15:43:57.988  INFO 28052 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-05-04 15:43:58.601  INFO 28052 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-05-04 15:43:58.602  INFO 28052 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2022-05-04 15:43:58.625  INFO 28052 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.soapserwer.repos.KatalogRepo. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2022-05-04 15:43:58.626  INFO 28052 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 21 ms. Found 0 JDBC repository interfaces.
+2022-05-04 15:43:58.635  INFO 28052 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-05-04 15:43:58.635  INFO 28052 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-05-04 15:43:58.665  INFO 28052 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24 ms. Found 1 JPA repository interfaces.
+2022-05-04 15:43:58.897  INFO 28052 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'webServiceConfig' of type [com.example.soapserwer.WebServiceConfig$$EnhancerBySpringCGLIB$$c8f0f7f0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-04 15:43:58.898  INFO 28052 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$42fda399] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-04 15:43:58.938  INFO 28052 --- [restartedMain] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2022-05-04 15:43:59.299  INFO 28052 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-05-04 15:43:59.307  INFO 28052 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-05-04 15:43:59.308  INFO 28052 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.45]
+2022-05-04 15:43:59.399  INFO 28052 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-05-04 15:43:59.399  INFO 28052 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1410 ms
+2022-05-04 15:43:59.637  INFO 28052 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-05-04 15:43:59.727  INFO 28052 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.30.Final
+2022-05-04 15:43:59.830  INFO 28052 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-05-04 15:43:59.916  INFO 28052 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-05-04 15:44:00.393  INFO 28052 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-05-04 15:44:00.413  INFO 28052 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-05-04 15:44:00.943  INFO 28052 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-05-04 15:44:00.952  INFO 28052 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-05-04 15:44:01.007  INFO 28052 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-05-04 15:44:01.488  WARN 28052 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-05-04 15:44:01.924  INFO 28052 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-05-04 15:44:02.510  INFO 28052 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-05-04 15:44:02.519  INFO 28052 --- [restartedMain] c.e.soapserwer.SoapSerwerApplication     : Started SoapSerwerApplication in 4.942 seconds (JVM running for 6.401)
+2022-05-04 15:44:30.388  INFO 28052 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring MessageDispatcherServlet 'messageDispatcherServlet'
+2022-05-04 15:44:30.388  INFO 28052 --- [http-nio-8081-exec-1] o.s.w.t.http.MessageDispatcherServlet    : Initializing Servlet 'messageDispatcherServlet'
+2022-05-04 15:44:30.390  INFO 28052 --- [http-nio-8081-exec-1] o.s.ws.soap.saaj.SaajSoapMessageFactory  : Creating SAAJ 1.3 MessageFactory with SOAP 1.1 Protocol
+2022-05-04 15:44:30.403  INFO 28052 --- [http-nio-8081-exec-1] o.s.w.t.http.MessageDispatcherServlet    : Completed initialization in 15 ms
+2022-05-04 15:44:35.552  WARN 28052 --- [http-nio-8081-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 42883
+2022-05-04 15:44:35.552 ERROR 28052 --- [http-nio-8081-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : ERROR: operator does not exist: character varying = bytea
+  Wskazówka: No operator matches the given name and argument types. You might need to add explicit type casts.
+  Pozycja: 49
+2022-05-04 15:45:42.813  WARN 28052 --- [http-nio-8081-exec-5] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 42883
+2022-05-04 15:45:42.813 ERROR 28052 --- [http-nio-8081-exec-5] o.h.engine.jdbc.spi.SqlExceptionHelper   : ERROR: operator does not exist: character varying = bytea
+  Wskazówka: No operator matches the given name and argument types. You might need to add explicit type casts.
+  Pozycja: 49
+2022-05-04 15:46:34.418  WARN 28052 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m33s827ms196µs600ns).
+2022-05-04 15:46:34.425  WARN 28052 --- [http-nio-8081-exec-5] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 42883
+2022-05-04 15:46:34.426 ERROR 28052 --- [http-nio-8081-exec-5] o.h.engine.jdbc.spi.SqlExceptionHelper   : ERROR: operator does not exist: character varying = bytea
+  Wskazówka: No operator matches the given name and argument types. You might need to add explicit type casts.
+  Pozycja: 49
+2022-05-04 15:46:34.869  INFO 28052 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-05-04 15:46:34.870  INFO 28052 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-05-04 15:46:34.874  INFO 28052 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-05-04 15:46:34.877  INFO 28052 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-05-04 15:46:39.741  INFO 16460 --- [restartedMain] c.e.soapserwer.SoapSerwerApplication     : Starting SoapSerwerApplication using Java 1.8.0_291 on DESKTOP-RSTROBF with PID 16460 (E:\studia\3_semestr_mgr\ISI\lab3\soapSerwer\target\classes started by ewus9 in E:\studia\3_semestr_mgr\ISI\lab3)
+2022-05-04 15:46:39.743  INFO 16460 --- [restartedMain] c.e.soapserwer.SoapSerwerApplication     : No active profile set, falling back to default profiles: default
+2022-05-04 15:46:39.785  INFO 16460 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-05-04 15:46:39.785  INFO 16460 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-05-04 15:46:40.405  INFO 16460 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-05-04 15:46:40.406  INFO 16460 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2022-05-04 15:46:40.431  INFO 16460 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.soapserwer.repos.KatalogRepo. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2022-05-04 15:46:40.432  INFO 16460 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 22 ms. Found 0 JDBC repository interfaces.
+2022-05-04 15:46:40.441  INFO 16460 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-05-04 15:46:40.441  INFO 16460 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-05-04 15:46:40.471  INFO 16460 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24 ms. Found 1 JPA repository interfaces.
+2022-05-04 15:46:40.705  INFO 16460 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'webServiceConfig' of type [com.example.soapserwer.WebServiceConfig$$EnhancerBySpringCGLIB$$6ff9d1f6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-04 15:46:40.706  INFO 16460 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$ea067d9f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-04 15:46:40.748  INFO 16460 --- [restartedMain] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2022-05-04 15:46:41.121  INFO 16460 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-05-04 15:46:41.130  INFO 16460 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-05-04 15:46:41.131  INFO 16460 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.45]
+2022-05-04 15:46:41.220  INFO 16460 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-05-04 15:46:41.220  INFO 16460 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1434 ms
+2022-05-04 15:46:41.464  INFO 16460 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-05-04 15:46:41.572  INFO 16460 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.30.Final
+2022-05-04 15:46:41.682  INFO 16460 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-05-04 15:46:41.770  INFO 16460 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-05-04 15:46:42.254  INFO 16460 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-05-04 15:46:42.271  INFO 16460 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-05-04 15:46:42.830  INFO 16460 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-05-04 15:46:42.840  INFO 16460 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-05-04 15:46:42.896  INFO 16460 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-05-04 15:46:43.428  WARN 16460 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-05-04 15:46:43.890  INFO 16460 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-05-04 15:46:44.515  INFO 16460 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-05-04 15:46:44.525  INFO 16460 --- [restartedMain] c.e.soapserwer.SoapSerwerApplication     : Started SoapSerwerApplication in 5.175 seconds (JVM running for 6.618)
+2022-05-04 15:46:45.216  INFO 16460 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring MessageDispatcherServlet 'messageDispatcherServlet'
+2022-05-04 15:46:45.216  INFO 16460 --- [http-nio-8081-exec-1] o.s.w.t.http.MessageDispatcherServlet    : Initializing Servlet 'messageDispatcherServlet'
+2022-05-04 15:46:45.219  INFO 16460 --- [http-nio-8081-exec-1] o.s.ws.soap.saaj.SaajSoapMessageFactory  : Creating SAAJ 1.3 MessageFactory with SOAP 1.1 Protocol
+2022-05-04 15:46:45.231  INFO 16460 --- [http-nio-8081-exec-1] o.s.w.t.http.MessageDispatcherServlet    : Completed initialization in 15 ms
+2022-05-04 15:48:00.370  WARN 16460 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=48s2ms862µs600ns).
+2022-05-04 15:49:54.233  INFO 16460 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-05-04 15:49:54.235  INFO 16460 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-05-04 15:49:54.242  INFO 16460 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-05-04 15:49:54.246  INFO 16460 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-05-04 15:49:58.068  INFO 7328 --- [restartedMain] c.e.soapserwer.SoapSerwerApplication     : Starting SoapSerwerApplication using Java 1.8.0_291 on DESKTOP-RSTROBF with PID 7328 (E:\studia\3_semestr_mgr\ISI\lab3\soapSerwer\target\classes started by ewus9 in E:\studia\3_semestr_mgr\ISI\lab3)
+2022-05-04 15:49:58.071  INFO 7328 --- [restartedMain] c.e.soapserwer.SoapSerwerApplication     : No active profile set, falling back to default profiles: default
+2022-05-04 15:49:58.113  INFO 7328 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-05-04 15:49:58.113  INFO 7328 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-05-04 15:49:58.735  INFO 7328 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-05-04 15:49:58.736  INFO 7328 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2022-05-04 15:49:58.761  INFO 7328 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.soapserwer.repos.KatalogRepo. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2022-05-04 15:49:58.762  INFO 7328 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 23 ms. Found 0 JDBC repository interfaces.
+2022-05-04 15:49:58.771  INFO 7328 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-05-04 15:49:58.771  INFO 7328 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-05-04 15:49:58.801  INFO 7328 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24 ms. Found 1 JPA repository interfaces.
+2022-05-04 15:49:59.042  INFO 7328 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'webServiceConfig' of type [com.example.soapserwer.WebServiceConfig$$EnhancerBySpringCGLIB$$7b248570] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-04 15:49:59.043  INFO 7328 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$f5313119] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-04 15:49:59.084  INFO 7328 --- [restartedMain] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2022-05-04 15:49:59.452  INFO 7328 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-05-04 15:49:59.462  INFO 7328 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-05-04 15:49:59.462  INFO 7328 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.45]
+2022-05-04 15:49:59.553  INFO 7328 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-05-04 15:49:59.553  INFO 7328 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1439 ms
+2022-05-04 15:49:59.799  INFO 7328 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-05-04 15:49:59.907  INFO 7328 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.30.Final
+2022-05-04 15:50:00.021  INFO 7328 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-05-04 15:50:00.114  INFO 7328 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-05-04 15:50:00.600  INFO 7328 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-05-04 15:50:00.624  INFO 7328 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-05-04 15:50:01.181  INFO 7328 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-05-04 15:50:01.191  INFO 7328 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-05-04 15:50:01.245  INFO 7328 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-05-04 15:50:01.753  WARN 7328 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-05-04 15:50:02.200  INFO 7328 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-05-04 15:50:02.797  INFO 7328 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-05-04 15:50:02.806  INFO 7328 --- [restartedMain] c.e.soapserwer.SoapSerwerApplication     : Started SoapSerwerApplication in 5.152 seconds (JVM running for 6.623)
+2022-05-04 15:50:05.157  INFO 7328 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring MessageDispatcherServlet 'messageDispatcherServlet'
+2022-05-04 15:50:05.157  INFO 7328 --- [http-nio-8081-exec-1] o.s.w.t.http.MessageDispatcherServlet    : Initializing Servlet 'messageDispatcherServlet'
+2022-05-04 15:50:05.159  INFO 7328 --- [http-nio-8081-exec-1] o.s.ws.soap.saaj.SaajSoapMessageFactory  : Creating SAAJ 1.3 MessageFactory with SOAP 1.1 Protocol
+2022-05-04 15:50:05.171  INFO 7328 --- [http-nio-8081-exec-1] o.s.w.t.http.MessageDispatcherServlet    : Completed initialization in 14 ms
+2022-05-04 15:52:44.788  WARN 7328 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m33s444ms504µs700ns).
+2022-05-04 15:52:45.227  INFO 7328 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-05-04 15:52:45.228  INFO 7328 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-05-04 15:52:45.233  INFO 7328 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-05-04 15:52:45.236  INFO 7328 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-05-04 15:52:50.070  INFO 28884 --- [restartedMain] c.e.soapserwer.SoapSerwerApplication     : Starting SoapSerwerApplication using Java 1.8.0_291 on DESKTOP-RSTROBF with PID 28884 (E:\studia\3_semestr_mgr\ISI\lab3\soapSerwer\target\classes started by ewus9 in E:\studia\3_semestr_mgr\ISI\lab3)
+2022-05-04 15:52:50.073  INFO 28884 --- [restartedMain] c.e.soapserwer.SoapSerwerApplication     : No active profile set, falling back to default profiles: default
+2022-05-04 15:52:50.115  INFO 28884 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-05-04 15:52:50.115  INFO 28884 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-05-04 15:52:50.729  INFO 28884 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-05-04 15:52:50.729  INFO 28884 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2022-05-04 15:52:50.755  INFO 28884 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.example.soapserwer.repos.KatalogRepo. If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2022-05-04 15:52:50.756  INFO 28884 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 22 ms. Found 0 JDBC repository interfaces.
+2022-05-04 15:52:50.764  INFO 28884 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-05-04 15:52:50.764  INFO 28884 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-05-04 15:52:50.794  INFO 28884 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24 ms. Found 1 JPA repository interfaces.
+2022-05-04 15:52:51.029  INFO 28884 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'webServiceConfig' of type [com.example.soapserwer.WebServiceConfig$$EnhancerBySpringCGLIB$$b03cbaba] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-04 15:52:51.030  INFO 28884 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$2a496663] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-04 15:52:51.070  INFO 28884 --- [restartedMain] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2022-05-04 15:52:51.427  INFO 28884 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-05-04 15:52:51.436  INFO 28884 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-05-04 15:52:51.436  INFO 28884 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.45]
+2022-05-04 15:52:51.531  INFO 28884 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-05-04 15:52:51.532  INFO 28884 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1416 ms
+2022-05-04 15:52:51.773  INFO 28884 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-05-04 15:52:51.865  INFO 28884 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.30.Final
+2022-05-04 15:52:51.973  INFO 28884 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-05-04 15:52:52.063  INFO 28884 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-05-04 15:52:52.541  INFO 28884 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-05-04 15:52:52.561  INFO 28884 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-05-04 15:52:53.111  INFO 28884 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-05-04 15:52:53.120  INFO 28884 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-05-04 15:52:53.177  INFO 28884 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-05-04 15:52:53.687  WARN 28884 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-05-04 15:52:54.136  INFO 28884 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-05-04 15:52:54.730  INFO 28884 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-05-04 15:52:54.739  INFO 28884 --- [restartedMain] c.e.soapserwer.SoapSerwerApplication     : Started SoapSerwerApplication in 5.061 seconds (JVM running for 6.466)
+2022-05-04 15:53:10.188  INFO 28884 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring MessageDispatcherServlet 'messageDispatcherServlet'
+2022-05-04 15:53:10.188  INFO 28884 --- [http-nio-8081-exec-1] o.s.w.t.http.MessageDispatcherServlet    : Initializing Servlet 'messageDispatcherServlet'
+2022-05-04 15:53:10.191  INFO 28884 --- [http-nio-8081-exec-1] o.s.ws.soap.saaj.SaajSoapMessageFactory  : Creating SAAJ 1.3 MessageFactory with SOAP 1.1 Protocol
+2022-05-04 15:53:10.203  INFO 28884 --- [http-nio-8081-exec-1] o.s.w.t.http.MessageDispatcherServlet    : Completed initialization in 14 ms
+2022-05-04 15:54:14.147  WARN 28884 --- [http-nio-8081-exec-4] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 42601
+2022-05-04 15:54:14.147 ERROR 28884 --- [http-nio-8081-exec-4] o.h.engine.jdbc.spi.SqlExceptionHelper   : ERROR: syntax error at or near "="
+  Pozycja: 72
+2022-05-04 15:55:28.058  WARN 28884 --- [http-nio-8081-exec-5] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 42601
+2022-05-04 15:55:28.058 ERROR 28884 --- [http-nio-8081-exec-5] o.h.engine.jdbc.spi.SqlExceptionHelper   : ERROR: syntax error at or near "="
+  Pozycja: 72
+2022-05-04 15:56:53.902  WARN 28884 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m59s291ms516µs400ns).
+2022-05-04 15:56:53.909  WARN 28884 --- [http-nio-8081-exec-5] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 42601
+2022-05-04 15:56:53.910 ERROR 28884 --- [http-nio-8081-exec-5] o.h.engine.jdbc.spi.SqlExceptionHelper   : ERROR: syntax error at or near "="
+  Pozycja: 72
+2022-05-04 15:56:54.318  INFO 28884 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-05-04 15:56:54.319  INFO 28884 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-05-04 15:56:54.323  INFO 28884 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-05-04 15:56:54.325  INFO 28884 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

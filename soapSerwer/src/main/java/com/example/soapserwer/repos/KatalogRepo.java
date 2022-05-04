@@ -23,4 +23,7 @@ public interface KatalogRepo extends JpaRepository<KatalogEntity, Long> {
     @Query(value = "select * from data_entity", nativeQuery = true)
     public List<KatalogEntity> getAll();
 
+    @Query(value = "select * from data_entity d where d.manufacturer=:manufacturer and d.matrix_texture=:matrix_texture", nativeQuery = true)
+    public List<KatalogEntity> getRowsByManufacturerAndMatrixTexture(@Param("manufacturer") String manufacturer, @Param("matrix_texture")String matrix_texture);
+
 }

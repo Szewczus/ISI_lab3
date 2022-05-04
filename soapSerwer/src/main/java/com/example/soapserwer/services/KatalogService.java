@@ -20,19 +20,71 @@ public class KatalogService {
 
         ResponseEntity1 responseEntity1 = new ResponseEntity1();
 
-        if(getRows.getManufacturer()!=null){
+        if(getRows.getManufacturer()!=null && getRows.getMatrixTexture()!=null && getRows.getProportions()!=null){
+            responseEntity1 = getRowsByProducentNameAndMatrixAndProportions(getRows);
+        }
+        if(getRows.getManufacturer()==null && getRows.getMatrixTexture()!=null && getRows.getProportions()!=null){
+            responseEntity1 = getRowsByMatrixAndProportions(getRows);
+        }
+
+        if(getRows.getManufacturer()!=null && getRows.getMatrixTexture()==null && getRows.getProportions()!=null){
+            responseEntity1 = getRowsByProducentNameAndProportions(getRows);
+        }
+
+        if(getRows.getManufacturer()!=null && getRows.getMatrixTexture()!=null && getRows.getProportions()==null){
+            responseEntity1 = getRowsByProducentNameAndMatrix(getRows);
+        }
+
+
+        if(getRows.getManufacturer()!=null && getRows.getMatrixTexture()==null && getRows.getProportions()==null){
             responseEntity1 = getRowsByProducentName(getRows.getManufacturer());
         }
 
-        if(getRows.getMatrixTexture()!=null){
+        if(getRows.getMatrixTexture()!=null && getRows.getManufacturer()==null && getRows.getProportions()==null){
             responseEntity1 = getMatrixTexture(getRows.getMatrixTexture());
         }
 
-        if (getRows.getProportions()!=null){
+        if (getRows.getProportions()!=null && getRows.getManufacturer()==null && getRows.getMatrixTexture()==null){
             responseEntity1 = getRowsByProportions(getRows.getProportions());
         }
         return responseEntity1;
     }
+
+    public ResponseEntity1 getRowsByProducentNameAndMatrixAndProportions(GetRows getRows){
+        List<KatalogEntity> katalogEntity = new ArrayList<>();
+        katalogEntity.addAll(katalogRepo.getRowsByManufacturerAndMatrixTexture(getRows.getManufacturer(), getRows.getMatrixTexture()));
+
+        return filterByProportions(getRows, katalogEntity);
+    }
+
+    public ResponseEntity1 getRowsByMatrixAndProportions(GetRows getRows){
+        List<KatalogEntity> katalogEntity = new ArrayList<>();
+        katalogEntity.addAll(katalogRepo.getRowsByMatrixTexture(getRows.getMatrixTexture()));
+
+        return filterByProportions(getRows, katalogEntity);
+    }
+
+    public ResponseEntity1 getRowsByProducentNameAndProportions(GetRows getRows){
+        List<KatalogEntity> katalogEntity = new ArrayList<>();
+        katalogEntity.addAll(katalogRepo.getRowsByManufacturer(getRows.getManufacturer()));
+
+        return filterByProportions(getRows, katalogEntity);
+    }
+
+    private ResponseEntity1 filterByProportions(GetRows getRows, List<KatalogEntity> katalogEntity) {
+        String[] proportionsArray = getRows.getProportions().split("x");
+        ResponseEntity1 responseEntity1 = new ResponseEntity1();
+        return getResponseBasedOdProportions(proportionsArray, responseEntity1, katalogEntity);
+    }
+
+    public ResponseEntity1 getRowsByProducentNameAndMatrix(GetRows getRows){
+        List<KatalogEntity> katalogEntity = new ArrayList<>();
+        katalogEntity.addAll(katalogRepo.getRowsByManufacturerAndMatrixTexture(getRows.getManufacturer(), getRows.getMatrixTexture()));
+        ResponseEntity1 responseEntity1 = new ResponseEntity1();
+        return getResponseEntity1(responseEntity1, katalogEntity);
+    }
+
+
 
     public ResponseEntity1 getRowsByProducentName(String manufacturer){
         Long count = 0L;
@@ -60,8 +112,12 @@ public class KatalogService {
         String[] proportionsArray = proportions.split("x");
         ResponseEntity1 responseEntity1 = new ResponseEntity1();
         List<KatalogEntity> katalogEntityList = katalogRepo.getAll();
+        return getResponseBasedOdProportions(proportionsArray, responseEntity1, katalogEntityList);
+    }
+
+    private ResponseEntity1 getResponseBasedOdProportions(String[] proportionsArray, ResponseEntity1 responseEntity1, List<KatalogEntity> katalogEntityList) {
         List<KatalogEntity> katalogEntityResoultList = new ArrayList<>();
-        for(KatalogEntity katalogEntity :katalogEntityList){
+        for(KatalogEntity katalogEntity : katalogEntityList){
             String resolution = katalogEntity.getResolution();
             if(resolution==null || resolution.equals("")){
                 continue;
@@ -79,6 +135,10 @@ public class KatalogService {
             }
         }
 
+        return getResponseEntity1(responseEntity1, katalogEntityResoultList);
+    }
+
+    private ResponseEntity1 getResponseEntity1(ResponseEntity1 responseEntity1, List<KatalogEntity> katalogEntityResoultList) {
         responseEntity1.setComputer(katalogEntityResoultList);
         responseEntity1.setCount((long) katalogEntityResoultList.size());
         return responseEntity1;
