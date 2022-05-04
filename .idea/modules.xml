@@ -5,7 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/JavaFxApplication.iml" filepath="$PROJECT_DIR$/JavaFxApplication.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo/demo.iml" filepath="$PROJECT_DIR$/demo/demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/soapSerwer/soapSerwer.iml" filepath="$PROJECT_DIR$/soapSerwer/soapSerwer.iml" />
-      <module fileurl="file://$PROJECT_DIR$/untitled/untitled.iml" filepath="$PROJECT_DIR$/untitled/untitled.iml" />
     </modules>
   </component>
 </project>

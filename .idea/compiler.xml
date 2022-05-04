@@ -10,6 +10,7 @@
       <entry name="!?*.flex" />
       <entry name="!?*.kt" />
       <entry name="!?*.clj" />
+      <entry name="!?*.fxml" />
     </wildcardResourcePatterns>
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
@@ -18,7 +19,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="demo" />
-        <module name="JavaFxApplication" />
         <module name="soapSerwer" />
       </profile>
     </annotationProcessing>
@@ -27,6 +27,7 @@
       <module name="JavaFxApplication" target="8" />
       <module name="soapServer" target="8" />
       <module name="soapSerwer" target="1.8" />
+      <module name="wrapper" target="1.5" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
