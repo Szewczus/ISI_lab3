@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ewa.pl/soap-example" targetNamespace="http://ewa.pl/soap-example">
+    <xs:element name="getRows">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="manufacturer" type="xs:string"/>
+                <xs:element name="matrixTexture" type="xs:string"/>
+                <xs:element name="proportions" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:element name="getResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="countComputersByManufacturer" type="xs:long"/>
+                <xs:element name="countComputersByMatrixType" type="xs:long"/>
+                <xs:element name="countComputersByProportions" type="xs:long"/>
+                <xs:element name="computerList" maxOccurs="unbounded" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="id"/>
+                            <xs:element name="manufacturer"/>
+                            <xs:element name="screenSize"/>
+                            <xs:element name="resolution"/>
+                            <xs:element name="matrixTexture"/>
+                            <xs:element name="touch"/>
+                            <xs:element name="processorName"/>
+                            <xs:element name="physicalCores"/>
+                            <xs:element name="clockSpeed"/>
+                            <xs:element name="ram"/>
+                            <xs:element name="discSize"/>
+                            <xs:element name="discType"/>
+                            <xs:element name="graphicCardName"/>
+                            <xs:element name="graphicCardMemory"/>
+                            <xs:element name="os"/>
+                            <xs:element name="discReader"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
