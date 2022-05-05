@@ -13,15 +13,20 @@
     <children>
         <HBox spacing="20">
             <children>
-                <Label style="-fx-font: NORMAL 15 Tahoma;" text="Wybór matrycy"   GridPane.columnIndex="0" GridPane.rowIndex="0" minWidth="120"/>
-                <ComboBox style="-fx-font: NORMAL 15 Tahoma;"  promptText="matowa"  GridPane.columnIndex="1" GridPane.rowIndex="0"  fx:id="matrixCombo"/>
-                <Button style="-fx-font: NORMAL 15 Tahoma;" text="Lista laptopów z określoną matrycą"   GridPane.columnIndex="2" GridPane.rowIndex="0" fx:id="matrixButton"/>
-                <TextField   style="-fx-font: NORMAL 15 Tahoma;" GridPane.columnIndex="3" GridPane.rowIndex="0" fx:id="liczbaLaptopowZDanymTypemMatrycy"/>
+                <Label style="-fx-font: NORMAL 15 Tahoma;" text="Wybór matrycy"   GridPane.columnIndex="0" GridPane.rowIndex="0" minWidth="110"/>
+                <ComboBox style="-fx-font: NORMAL 15 Tahoma;"  promptText="matowa"  GridPane.columnIndex="1" GridPane.rowIndex="0"  fx:id="matrixCombo" minWidth="130"/>
+                <Button style="-fx-font: NORMAL 15 Tahoma;" text="Lista laptopów z określoną matrycą"   GridPane.columnIndex="2" GridPane.rowIndex="0" fx:id="matrixButton" minWidth="130"/>
+                <TextField   style="-fx-font: NORMAL 15 Tahoma;" GridPane.columnIndex="3" GridPane.rowIndex="0" fx:id="liczbaLaptopowZDanymTypemMatrycy" maxWidth="50"/>
 
-                <Label style="-fx-font: NORMAL 15 Tahoma;" text="Wybór producenta"   GridPane.columnIndex="0" GridPane.rowIndex="0" minWidth="120"/>
-                <ComboBox style="-fx-font: NORMAL 15 Tahoma;"  promptText="Samsung"  GridPane.columnIndex="1" GridPane.rowIndex="0"  fx:id="producentCombo"/>
-                <Button style="-fx-font: NORMAL 15 Tahoma;" text="Liczba laptopów producenta"   GridPane.columnIndex="2" GridPane.rowIndex="0" fx:id="producentButton"/>
-                <TextField   style="-fx-font: NORMAL 15 Tahoma;" GridPane.columnIndex="3" GridPane.rowIndex="0" fx:id="liczbaLaptopowProducenta"/>
+                <Label style="-fx-font: NORMAL 15 Tahoma;" text="Wybór producenta"   GridPane.columnIndex="0" GridPane.rowIndex="0" minWidth="130"/>
+                <ComboBox style="-fx-font: NORMAL 15 Tahoma;"  promptText="Samsung"  GridPane.columnIndex="1" GridPane.rowIndex="0"  fx:id="producentCombo" minWidth="130"/>
+                <Button style="-fx-font: NORMAL 15 Tahoma;" text="Liczba laptopów producenta"   GridPane.columnIndex="2" GridPane.rowIndex="0" fx:id="producentButton" minWidth="130"/>
+                <TextField   style="-fx-font: NORMAL 15 Tahoma;" GridPane.columnIndex="3" GridPane.rowIndex="0" fx:id="liczbaLaptopowProducenta" maxWidth="50"/>
+
+                <Label style="-fx-font: NORMAL 15 Tahoma;" text="Proporcje"   GridPane.columnIndex="4" GridPane.rowIndex="0" minWidth="80"/>
+                <ComboBox style="-fx-font: NORMAL 15 Tahoma;"  promptText="16x9"  GridPane.columnIndex="5" GridPane.rowIndex="0"  fx:id="proporcjeCombo" minWidth="70"/>
+                <Button style="-fx-font: NORMAL 15 Tahoma;" text="Liczba laptopów o danych proporcjach"   GridPane.columnIndex="6" GridPane.rowIndex="0" fx:id="proporcjeButton" minWidth="130"/>
+                <TextField   style="-fx-font: NORMAL 15 Tahoma;" GridPane.columnIndex="3" GridPane.rowIndex="7" fx:id="liczbaLaptopowODanychProprcjach" maxWidth="50"/>
             </children>
         </HBox>
 

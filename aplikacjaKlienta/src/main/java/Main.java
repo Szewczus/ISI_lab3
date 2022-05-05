@@ -12,7 +12,7 @@ public class Main extends Application {
 
         Parent root = FXMLLoader.load(getClass().getResource("/sample.fxml"));
         primaryStage.setTitle("Integracja systemów - Aplikacja klienta - Ewa Szewczak");
-        primaryStage.setScene(new Scene(root, 1500, 475));
+        primaryStage.setScene(new Scene(root, 1800, 475));
         primaryStage.show();
     }
 
