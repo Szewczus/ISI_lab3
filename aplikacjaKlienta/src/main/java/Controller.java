@@ -1,4 +1,7 @@
 import entity.ResponseEntity1;
+
+import front.ClassReader;
+import front.Data;
 import front.DataDto;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -8,20 +11,11 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
-import javafx.scene.layout.GridPane;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
-import jdk.internal.org.objectweb.asm.ClassReader;
-import org.json.JSONObject;
 import org.w3c.dom.NodeList;
 
-import javax.xml.bind.JAXBException;
 import javax.xml.soap.MessageFactory;
 import javax.xml.soap.SOAPException;
 import javax.xml.soap.SOAPMessage;
@@ -46,6 +40,12 @@ public class Controller implements Initializable {
     @FXML
     private Button producentButton;
 
+    @FXML
+    private TableView tableView;
+
+    @FXML
+    private TextField liczbaLaptopowProducenta;
+
 
 
     static String nazwy_kolumn[] ={"nazwa producenta", "przekątna ekranu", "rozdzielczość ekranu", "rodzaj powierzchni ekranu", "czy ekran jest dotykowy", "nazwa procesora",  "liczba rdzeni fizycznych", "prędkość taktowania MHz", "wielkość pamięci RAM", "pojemność dysku", "rodzaj dysku", "nazwa układu graficznego", "pamięć układu graficznego", "nazwa systemu operacyjnego", "rodzaj napędu fizycznego w komputerze"};
@@ -53,10 +53,36 @@ public class Controller implements Initializable {
     ClassReader classReader;
 
     public void initialize(URL location, ResourceBundle resources) {
+        classReader = new ClassReader(Data.class);
+        classReader.readClassMethods(); //metoda przechowuje metody klasy Data
+
+        int j = 0;
+        for(String columHeader : nazwy_kolumn){
+            TableColumn<Data, String> col1 = new TableColumn<>(columHeader);
+            col1.setMinWidth(100);
+            col1.setCellValueFactory(new PropertyValueFactory<Data, String>(classReader.getFields().get(j).getName()));
+            col1.setCellFactory(TextFieldTableCell.<Data>forTableColumn());
+            col1.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<Data, String>>() {
+                @Override
+                public void handle(TableColumn.CellEditEvent<Data, String> event) {
+                    Data data = event.getTableView().getItems().get(event.getTablePosition().getRow());
+                    Method method = classReader.getSetMethods().get(event.getTablePosition().getColumn());
+                    try {
+                        method.invoke(data, event.getNewValue());   //computer.setManufacturer(t.getNewValue());
+                    } catch (IllegalAccessException | InvocationTargetException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+            tableView.getColumns().add(col1);
+            j++;
+        }
+        tableView.setMinWidth(500);
+
+        /*set combox*/
         matrixCombo.getItems().setAll("matowa", "błyszcząca");
         final String[] matrix = {""};
         final String[] producent = {""};
-        matrixCombo.setPromptText("Email address");
         matrixCombo.valueProperty().addListener(new ChangeListener<String>() {
 
             public void changed(ObservableValue ov, String t, String t1) {
@@ -71,8 +97,12 @@ public class Controller implements Initializable {
                 producent[0] = t1;
             }
         });
+        /*end set combox*/
 
-        matrixButton.setOnAction(new EventHandler<ActionEvent>() {
+
+
+
+        producentButton.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent event) {
                 ConnectionHelper connectionHelper = new ConnectionHelper();
                 String input = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
@@ -80,7 +110,7 @@ public class Controller implements Initializable {
                         "         xmlns:std=\"http://ewa.pl/soap-example\"  >" +
                         "  <soap:Body>" +
                         "    <std:getRows>" +
-                        "    <manufacturer>Dell</manufacturer>" +
+                        "    <manufacturer>Samsung</manufacturer>" +
                         "" +
                         "    </std:getRows>" +
                         "  </soap:Body>" +
@@ -89,12 +119,28 @@ public class Controller implements Initializable {
                    String resp =  connectionHelper.handleRequest("POST", "http://localhost:8081/ws", input ,"1000","1000");
                     try {
                         ResponseEntity1 responseEntity1  = convertToObject(resp);
+
+                        try {
+                            List<Data> dataList = dataDtotoData(responseEntity1.getComputer());
+                            ObservableList<Data> data1 = FXCollections.observableArrayList(dataList);
+                            tableView.setItems(data1);
+                            tableView.setEditable(true);
+                            liczbaLaptopowProducenta.setText(String.valueOf(responseEntity1.getCountComputersByManufacturer()));
+                        } catch (InvocationTargetException e) {
+                            e.printStackTrace();
+                        } catch (IllegalAccessException e) {
+                            e.printStackTrace();
+                        }
+
                     } catch (SOAPException e) {
                         e.printStackTrace();
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+
+
+
             }
         });
     }
@@ -187,6 +233,29 @@ public class Controller implements Initializable {
         }
 
         return responseEntity1;
+    }
+
+    public List<Data> dataDtotoData(List<DataDto> dataListDto) throws InvocationTargetException, IllegalAccessException {
+        ClassReader dataDtoReader = new ClassReader(DataDto.class);
+        dataDtoReader.readClassMethods();
+
+        ClassReader dataReader = new ClassReader(Data.class);
+        dataReader.readClassMethods();
+
+        List<Data> dataList = new ArrayList<>();
+        for(DataDto dataDto : dataListDto){
+            Data data = new Data();
+            int i = 1;
+            for (Method method : dataReader.getSetMethods()){
+                String d1 = (String) dataDtoReader.getGetMethods().get(i).invoke(dataDto);
+                method.invoke(data, d1);
+                i++;
+            }
+
+
+            dataList.add(data);
+        }
+        return dataList;
     }
 
 

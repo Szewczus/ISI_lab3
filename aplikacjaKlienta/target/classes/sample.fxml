@@ -8,17 +8,19 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
 <VBox fx:controller="Controller" xmlns:fx="http://javafx.com/fxml" prefHeight="431.0" prefWidth="409.0" spacing="20.0" >
     <children>
         <HBox spacing="20">
             <children>
                 <Label style="-fx-font: NORMAL 15 Tahoma;" text="Wybór matrycy"   GridPane.columnIndex="0" GridPane.rowIndex="0" minWidth="120"/>
-                <ComboBox style="-fx-font: NORMAL 15 Tahoma;"  promptText="choose"  GridPane.columnIndex="1" GridPane.rowIndex="0"  fx:id="matrixCombo"/>
+                <ComboBox style="-fx-font: NORMAL 15 Tahoma;"  promptText="błyszcząca"  GridPane.columnIndex="1" GridPane.rowIndex="0"  fx:id="matrixCombo"/>
                 <Button style="-fx-font: NORMAL 15 Tahoma;" text="Lista laptopów z określoną matrycą"   GridPane.columnIndex="2" GridPane.rowIndex="0" fx:id="matrixButton"/>
 
                 <Label style="-fx-font: NORMAL 15 Tahoma;" text="Wybór producenta"   GridPane.columnIndex="0" GridPane.rowIndex="0" minWidth="120"/>
-                <ComboBox style="-fx-font: NORMAL 15 Tahoma;"  promptText="choose"  GridPane.columnIndex="1" GridPane.rowIndex="0"  fx:id="producentCombo"/>
+                <ComboBox style="-fx-font: NORMAL 15 Tahoma;"  promptText="Samsung"  GridPane.columnIndex="1" GridPane.rowIndex="0"  fx:id="producentCombo"/>
                 <Button style="-fx-font: NORMAL 15 Tahoma;" text="Liczba laptopów producenta"   GridPane.columnIndex="2" GridPane.rowIndex="0" fx:id="producentButton"/>
+                <TextField   style="-fx-font: NORMAL 15 Tahoma;" GridPane.columnIndex="3" GridPane.rowIndex="0" fx:id="liczbaLaptopowProducenta"/>
             </children>
         </HBox>
 
@@ -29,11 +31,6 @@
         <GridPane fx:id="miejsce_na_dane">
         </GridPane>
 
-        <GridPane fx:id="miejsce_na_przyciski">
-            <children>
-                <Button style="-fx-font: NORMAL 15 Tahoma;" text="Dodaj nowy wiersz"   GridPane.columnIndex="0" GridPane.rowIndex="4" fx:id="dodaj"/>
-            </children>
-        </GridPane>
     </children>
 
 </VBox>
