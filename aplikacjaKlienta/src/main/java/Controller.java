@@ -126,9 +126,7 @@ public class Controller implements Initializable {
                             tableView.setItems(data1);
                             tableView.setEditable(true);
                             liczbaLaptopowProducenta.setText(String.valueOf(responseEntity1.getCountComputersByManufacturer()));
-                        } catch (InvocationTargetException e) {
-                            e.printStackTrace();
-                        } catch (IllegalAccessException e) {
+                        } catch (InvocationTargetException | IllegalAccessException e) {
                             e.printStackTrace();
                         }
 
