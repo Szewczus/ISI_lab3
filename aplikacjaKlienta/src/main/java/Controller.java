@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.layout.VBox;
 import org.w3c.dom.NodeList;
 
 import javax.xml.soap.MessageFactory;
@@ -45,6 +46,12 @@ public class Controller implements Initializable {
 
     @FXML
     private TextField liczbaLaptopowProducenta;
+
+    @FXML
+    private TextField liczbaLaptopowZDanymTypemMatrycy;
+
+    @FXML
+    private VBox rootVBox;
 
 
 
@@ -80,7 +87,87 @@ public class Controller implements Initializable {
         tableView.setMinWidth(500);
 
         /*set combox*/
-        matrixCombo.getItems().setAll("matowa", "błyszcząca");
+        fillComboboxes();
+        /*end set combox*/
+
+
+        producentButton.setOnAction(new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent event) {
+                ConnectionHelper connectionHelper = new ConnectionHelper();
+                String producentComboValue = (String) producentCombo.valueProperty().getValue();
+                String condition = producentComboValue==null?"Samsung": producentComboValue;
+                String input = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+                        "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"" +
+                        "         xmlns:std=\"http://ewa.pl/soap-example\"  >" +
+                        "  <soap:Body>" +
+                        "    <std:getRows>" +
+                        "    <manufacturer>"+condition+"</manufacturer>" +
+                        "" +
+                        "    </std:getRows>" +
+                        "  </soap:Body>" +
+                        "</soap:Envelope>";
+                try {
+                   String resp =  connectionHelper.handleRequest("POST", "http://localhost:8081/ws", input ,"1000","1000");
+                    try {
+                        ResponseEntity1 responseEntity1  = convertToObject(resp);
+                        try {
+                            fillTableView(responseEntity1);
+                            liczbaLaptopowProducenta.setText(String.valueOf(responseEntity1.getCountComputersByManufacturer()));
+                        } catch (InvocationTargetException | IllegalAccessException e) {
+                            e.printStackTrace();
+                        }
+
+                    } catch (SOAPException e) {
+                        e.printStackTrace();
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        matrixButton.setOnAction(new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent event) {
+                ConnectionHelper connectionHelper = new ConnectionHelper();
+                String matrixComboValue = (String) matrixCombo.valueProperty().getValue();
+                String condition = matrixComboValue==null?"matowa": matrixComboValue;
+                String input = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+                        "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"" +
+                        "         xmlns:std=\"http://ewa.pl/soap-example\"  >" +
+                        "  <soap:Body>" +
+                        "    <std:getRows>" +
+                        "    <matrixTexture>"+condition+"</matrixTexture>" +
+                        "" +
+                        "    </std:getRows>" +
+                        "  </soap:Body>" +
+                        "</soap:Envelope>";
+                try {
+                    String resp =  connectionHelper.handleRequest("POST", "http://localhost:8081/ws", input ,"1000","1000");
+                    try {
+                        ResponseEntity1 responseEntity1  = convertToObject(resp);
+                        try {
+                            fillTableView(responseEntity1);
+                            liczbaLaptopowZDanymTypemMatrycy.setText(String.valueOf(responseEntity1.getCountComputersByMatrixType()));
+                        } catch (InvocationTargetException | IllegalAccessException e) {
+                            e.printStackTrace();
+                        }
+
+                    } catch (SOAPException e) {
+                        e.printStackTrace();
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+    }
+
+    /**
+     * ------------------------------------------------------------------------------------------------
+     */
+    private void fillComboboxes() {
+        matrixCombo.getItems().setAll("matowa", "blyszczaca");
         final String[] matrix = {""};
         final String[] producent = {""};
         matrixCombo.valueProperty().addListener(new ChangeListener<String>() {
@@ -97,51 +184,16 @@ public class Controller implements Initializable {
                 producent[0] = t1;
             }
         });
-        /*end set combox*/
-
-
-
-
-        producentButton.setOnAction(new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent event) {
-                ConnectionHelper connectionHelper = new ConnectionHelper();
-                String input = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
-                        "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"" +
-                        "         xmlns:std=\"http://ewa.pl/soap-example\"  >" +
-                        "  <soap:Body>" +
-                        "    <std:getRows>" +
-                        "    <manufacturer>Samsung</manufacturer>" +
-                        "" +
-                        "    </std:getRows>" +
-                        "  </soap:Body>" +
-                        "</soap:Envelope>";
-                try {
-                   String resp =  connectionHelper.handleRequest("POST", "http://localhost:8081/ws", input ,"1000","1000");
-                    try {
-                        ResponseEntity1 responseEntity1  = convertToObject(resp);
-
-                        try {
-                            List<Data> dataList = dataDtotoData(responseEntity1.getComputer());
-                            ObservableList<Data> data1 = FXCollections.observableArrayList(dataList);
-                            tableView.setItems(data1);
-                            tableView.setEditable(true);
-                            liczbaLaptopowProducenta.setText(String.valueOf(responseEntity1.getCountComputersByManufacturer()));
-                        } catch (InvocationTargetException | IllegalAccessException e) {
-                            e.printStackTrace();
-                        }
-
-                    } catch (SOAPException e) {
-                        e.printStackTrace();
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-
-
-            }
-        });
     }
+
+    private void fillTableView(ResponseEntity1 responseEntity1) throws InvocationTargetException, IllegalAccessException {
+        List<Data> dataList = dataDtotoData(responseEntity1.getComputer());
+        ObservableList<Data> data1 = FXCollections.observableArrayList(dataList);
+        tableView.setItems(data1);
+        tableView.setEditable(true);
+    }
+
+
     private static ResponseEntity1 convertToObject(String xml) throws SOAPException, IOException {
         ResponseEntity1 responseEntity1 = new ResponseEntity1();
         List<DataDto> dataDtos = new ArrayList<>();
@@ -222,10 +274,6 @@ public class Controller implements Initializable {
                     }
                     dataDtos.add(dataDto);
                     responseEntity1.setComputer(dataDtos);
-                }
-
-                if (children.item(k).getNodeName().equals("countComputersByMatrixType")) {
-
                 }
             }
         }
