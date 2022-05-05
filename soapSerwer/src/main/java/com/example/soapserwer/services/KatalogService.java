@@ -151,6 +151,9 @@ public class KatalogService {
             }
         }
         responseEntity1.setComputer(katalogEntityResoultList);
+        if(getRows.getProportions()!=null){
+            responseEntity1.setCountComputersByProportions(Long.valueOf(katalogEntityResoultList.size()));
+        }
         return responseEntity1;
     }
 

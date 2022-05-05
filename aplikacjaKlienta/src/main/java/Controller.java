@@ -51,7 +51,15 @@ public class Controller implements Initializable {
     private TextField liczbaLaptopowZDanymTypemMatrycy;
 
     @FXML
-    private VBox rootVBox;
+    private ComboBox proporcjeCombo;
+
+    @FXML
+    private Button proporcjeButton;
+
+    @FXML
+    private TextField liczbaLaptopowODanychProprcjach;
+
+
 
 
 
@@ -63,28 +71,7 @@ public class Controller implements Initializable {
         classReader = new ClassReader(Data.class);
         classReader.readClassMethods(); //metoda przechowuje metody klasy Data
 
-        int j = 0;
-        for(String columHeader : nazwy_kolumn){
-            TableColumn<Data, String> col1 = new TableColumn<>(columHeader);
-            col1.setMinWidth(100);
-            col1.setCellValueFactory(new PropertyValueFactory<Data, String>(classReader.getFields().get(j).getName()));
-            col1.setCellFactory(TextFieldTableCell.<Data>forTableColumn());
-            col1.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<Data, String>>() {
-                @Override
-                public void handle(TableColumn.CellEditEvent<Data, String> event) {
-                    Data data = event.getTableView().getItems().get(event.getTablePosition().getRow());
-                    Method method = classReader.getSetMethods().get(event.getTablePosition().getColumn());
-                    try {
-                        method.invoke(data, event.getNewValue());   //computer.setManufacturer(t.getNewValue());
-                    } catch (IllegalAccessException | InvocationTargetException e) {
-                        e.printStackTrace();
-                    }
-                }
-            });
-            tableView.getColumns().add(col1);
-            j++;
-        }
-        tableView.setMinWidth(500);
+        initTable();
 
         /*set combox*/
         fillComboboxes();
@@ -161,6 +148,66 @@ public class Controller implements Initializable {
             }
         });
 
+        proporcjeButton.setOnAction(new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent event) {
+                ConnectionHelper connectionHelper = new ConnectionHelper();
+                String proportionsComboValue = (String) proporcjeCombo.valueProperty().getValue();
+                String condition = proportionsComboValue==null?"16x9": proportionsComboValue;
+                String input = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+                        "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"" +
+                        "         xmlns:std=\"http://ewa.pl/soap-example\"  >" +
+                        "  <soap:Body>" +
+                        "    <std:getRows>" +
+                        "    <proportions>"+condition+"</proportions>" +
+                        "" +
+                        "    </std:getRows>" +
+                        "  </soap:Body>" +
+                        "</soap:Envelope>";
+                try {
+                    String resp =  connectionHelper.handleRequest("POST", "http://localhost:8081/ws", input ,"1000","1000");
+                    try {
+                        ResponseEntity1 responseEntity1  = convertToObject(resp);
+                        try {
+                            fillTableView(responseEntity1);
+                            liczbaLaptopowODanychProprcjach.setText(String.valueOf(responseEntity1.getCountComputersByProportions()));
+                        } catch (InvocationTargetException | IllegalAccessException e) {
+                            e.printStackTrace();
+                        }
+
+                    } catch (SOAPException e) {
+                        e.printStackTrace();
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+    }
+
+    private void initTable() {
+        int j = 0;
+        for(String columHeader : nazwy_kolumn){
+            TableColumn<Data, String> col1 = new TableColumn<>(columHeader);
+            col1.setMinWidth(100);
+            col1.setCellValueFactory(new PropertyValueFactory<Data, String>(classReader.getFields().get(j).getName()));
+            col1.setCellFactory(TextFieldTableCell.<Data>forTableColumn());
+            col1.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<Data, String>>() {
+                @Override
+                public void handle(TableColumn.CellEditEvent<Data, String> event) {
+                    Data data = event.getTableView().getItems().get(event.getTablePosition().getRow());
+                    Method method = classReader.getSetMethods().get(event.getTablePosition().getColumn());
+                    try {
+                        method.invoke(data, event.getNewValue());   //computer.setManufacturer(t.getNewValue());
+                    } catch (IllegalAccessException | InvocationTargetException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+            tableView.getColumns().add(col1);
+            j++;
+        }
+        tableView.setMinWidth(500);
     }
 
     /**
@@ -184,12 +231,25 @@ public class Controller implements Initializable {
                 producent[0] = t1;
             }
         });
+
+        proporcjeCombo.getItems().setAll("16x9", "4x3", "21x9");
+        proporcjeCombo.valueProperty().addListener(new ChangeListener<String>() {
+
+            public void changed(ObservableValue ov, String t, String t1) {
+                producent[0] = t1;
+            }
+        });
     }
 
     private void fillTableView(ResponseEntity1 responseEntity1) throws InvocationTargetException, IllegalAccessException {
-        List<Data> dataList = dataDtotoData(responseEntity1.getComputer());
-        ObservableList<Data> data1 = FXCollections.observableArrayList(dataList);
-        tableView.setItems(data1);
+        if(responseEntity1.getComputer()==null){
+            tableView.setItems(null);
+        }
+        else {
+            List<Data> dataList = dataDtotoData(responseEntity1.getComputer());
+            ObservableList<Data> data1 = FXCollections.observableArrayList(dataList);
+            tableView.setItems(data1);
+        }
         tableView.setEditable(true);
     }
 
