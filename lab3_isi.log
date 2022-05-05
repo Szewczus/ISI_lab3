@@ -701,3 +701,7 @@ com.sun.xml.internal.messaging.saaj.SOAPExceptionImpl: Invalid Content-Type:appl
 2022-05-05 00:45:02.324  INFO 29492 --- [http-nio-8081-exec-1] o.s.w.t.http.MessageDispatcherServlet    : Initializing Servlet 'messageDispatcherServlet'
 2022-05-05 00:45:02.326  INFO 29492 --- [http-nio-8081-exec-1] o.s.ws.soap.saaj.SaajSoapMessageFactory  : Creating SAAJ 1.3 MessageFactory with SOAP 1.1 Protocol
 2022-05-05 00:45:02.335  INFO 29492 --- [http-nio-8081-exec-1] o.s.w.t.http.MessageDispatcherServlet    : Completed initialization in 11 ms
+2022-05-05 04:24:50.680  WARN 29492 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3h26s761ms185µs200ns).
+2022-05-05 10:15:33.917  WARN 29492 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5h50m48s510ms503µs300ns).
+2022-05-05 10:26:21.664 ERROR 29492 --- [http-nio-8081-exec-10] c.sun.xml.internal.messaging.saaj.soap   : SAAJ0511: Unable to create envelope from given source
+2022-05-05 10:26:42.614  WARN 29492 --- [http-nio-8081-exec-3] o.s.ws.server.EndpointNotFound           : No endpoint mapping found for [SaajSoapMessage getRows]

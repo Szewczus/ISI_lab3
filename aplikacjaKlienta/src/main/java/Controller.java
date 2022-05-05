@@ -1,3 +1,5 @@
+import entity.ResponseEntity1;
+import front.DataDto;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -16,8 +18,13 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import jdk.internal.org.objectweb.asm.ClassReader;
+import org.json.JSONObject;
+import org.w3c.dom.NodeList;
 
 import javax.xml.bind.JAXBException;
+import javax.xml.soap.MessageFactory;
+import javax.xml.soap.SOAPException;
+import javax.xml.soap.SOAPMessage;
 import java.io.*;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -80,12 +87,106 @@ public class Controller implements Initializable {
                         "</soap:Envelope>";
                 try {
                    String resp =  connectionHelper.handleRequest("POST", "http://localhost:8081/ws", input ,"1000","1000");
-                   producentButton.setText(resp);
+                    try {
+                        ResponseEntity1 responseEntity1  = convertToObject(resp);
+                    } catch (SOAPException e) {
+                        e.printStackTrace();
+                    }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
         });
+    }
+    private static ResponseEntity1 convertToObject(String xml) throws SOAPException, IOException {
+        ResponseEntity1 responseEntity1 = new ResponseEntity1();
+        List<DataDto> dataDtos = new ArrayList<>();
+        InputStream is = new ByteArrayInputStream(xml.getBytes());
+        MessageFactory factory = MessageFactory.newInstance();
+        SOAPMessage message = factory.createMessage(null, is);
+        NodeList listResult = message.getSOAPBody().getChildNodes();
+        for (int i = 0; i < listResult.getLength(); i++) {
+            NodeList children = listResult.item(i).getChildNodes();
+            for (int k = 0; k < children.getLength(); k++) {
+                System.out.println(children.item(k).getNodeName());
+                System.out.println(children.item(k).getTextContent());
+                if(children.item(k).getNodeName().equals("countComputersByManufacturer")){
+                    responseEntity1.setCountComputersByManufacturer(Long.valueOf(children.item(k).getTextContent()));
+                }
+                if(children.item(k).getNodeName().equals("countComputersByMatrixType")){
+                    responseEntity1.setCountComputersByMatrixType(Long.valueOf(children.item(k).getTextContent()));
+                }
+                if(children.item(k).getNodeName().equals("countComputersByProportions")){
+                    responseEntity1.setCountComputersByProportions(Long.valueOf(children.item(k).getTextContent()));
+                }
+
+                if (children.item(k).getNodeName().equals("computerList")) {
+                    NodeList children1 = children.item(k).getChildNodes();
+                    DataDto dataDto = new DataDto();
+                    for(int j=0; j< children1.getLength(); j++){
+                        String content = children1.item(j).getTextContent();
+                        if(j==0){
+                            dataDto.setId(Long.valueOf(content));
+                        }
+                        if(j==1){
+                            dataDto.setManufacturer(content);
+                        }
+                        if(j==2){
+                            dataDto.setScreenSize(content);
+                        }
+                        if(j==3){
+                            dataDto.setResolution(content);
+                        }
+                        if(j==4){
+                            dataDto.setMatrixTexture(content);
+                        }
+                        if(j==5){
+                            dataDto.setTouch(content);
+                        }
+                        if(j==6){
+                            dataDto.setProcessorName(content);
+                        }
+                        if(j==7){
+                            dataDto.setPhysicalCores(content);
+                        }
+                        if(j==7){
+                            dataDto.setClockSpeed(content);
+                        }
+                        if(j==8){
+                            dataDto.setRam(content);
+                        }
+                        if(j==9){
+                            dataDto.setDiscSize(content);
+                        }
+                        if(j==10){
+                            dataDto.setDiscType(content);
+                        }
+                        if(j==11){
+                            dataDto.setGraphicCardName(content);
+                        }
+                        if(j==12){
+                            dataDto.setGraphicCardMemory(content);
+                        }
+                        if(j==13){
+                            dataDto.setOs(content);
+                        }
+                        if(j==14){
+                            dataDto.setDiscReader(content);
+                        }
+
+                        System.out.println(children1.item(j).getTextContent());
+                    }
+                    dataDtos.add(dataDto);
+                    responseEntity1.setComputer(dataDtos);
+                }
+
+                if (children.item(k).getNodeName().equals("countComputersByMatrixType")) {
+
+                }
+            }
+        }
+
+        return responseEntity1;
     }
 
 
