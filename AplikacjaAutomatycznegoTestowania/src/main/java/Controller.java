@@ -130,50 +130,126 @@ public class Controller implements Initializable {
                 bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
                 bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
                 bot.delay(10);
-                int record = Integer.parseInt(modifyRecord.getText());
-                int i=0;
-                for (CheckBox checkbox : checkboxesList){
-                    if(checkbox.isSelected()){
-                        moveToTableRecord(bot, record, i);
-                        sendKeys(bot, textFieldsList.get(i).getText());
+                if(!modifyRecord.getText().equals("")){
+                    int record = Integer.parseInt(modifyRecord.getText());
+                    int i=0;
+                    for (CheckBox checkbox : checkboxesList){
+                        if(checkbox.isSelected()){
+                            moveToTableRecord(bot, record, i);
+                            sendKeys(bot, textFieldsList.get(i).getText());
+                        }
+                        i++;
                     }
-                    i++;
                 }
+
                 if(additionalSaveToXMLCheckbox.isSelected()){
                     moveToExportToXML(bot);
-                    moveToExportToDB(bot);
                 }
+                moveToExportToDB(bot);
 
-                if(!matrixTypeTextField.getText().equals("")){
-                    if(matrixTypeTextField.getText().equals("blyszczaca")){
-                        //najechanie i wcisniecie comboboxa
-                        klikniecieNaPrzycisk(bot, 150, 40, 10);
+                szukanieListaLaptopowZOkreslonaMatryca(bot);
 
-                        //przestawienie comboboxa
-                        klikniecieNaPrzycisk(bot, 150, 95, 1000);
-
-                    }
-                    else {
-
-                        if(matrixTypeTextField.getText().equals("matowa")){
-                            //najechanie i wcisniecie comboboxa
-                            klikniecieNaPrzycisk(bot, 150, 40, 10);
-
-                            //przestawienie comboboxa
-                            klikniecieNaPrzycisk(bot, 150, 80, 1000);
-
-                        }
-
-                    }
-
-                    //klikniecie przycisku "lista laptopow z określoną matyrycą"
-                    klikniecieNaPrzycisk(bot, 300, 40, 10);
-                }
+                wyborProduceta(bot);
 
             } catch (AWTException e) {
                 e.printStackTrace();
             }
         });
+    }
+
+    private void szukanieListaLaptopowZOkreslonaMatryca(Robot bot) {
+            if(matrixTypeTextField.getText().equals("blyszczaca")){
+                //najechanie i wcisniecie comboboxa
+                klikniecieNaPrzycisk(bot, 150, 40, 10);
+
+                //przestawienie comboboxa
+                klikniecieNaPrzycisk(bot, 150, 95, 1000);
+
+            }
+            else {
+
+                if(matrixTypeTextField.getText().equals("matowa")){
+                    //najechanie i wcisniecie comboboxa
+                    klikniecieNaPrzycisk(bot, 150, 40, 10);
+
+                    //przestawienie comboboxa
+                    klikniecieNaPrzycisk(bot, 150, 80, 1000);
+
+                }
+
+            }
+
+            //klikniecie przycisku "lista laptopow z określoną matyrycą"
+            klikniecieNaPrzycisk(bot, 300, 40, 10);
+
+    }
+
+    private void wyborProduceta(Robot bot){
+        if(manufacturerTextField.getText().equals("Samsung")){
+            //najechanie i wcisniecie comboboxa
+            klikniecieNaPrzycisk(bot, 800, 40, 1000);
+
+            //przestawienie comboboxa
+            klikniecieNaPrzycisk(bot, 800, 80, 10);
+
+        }
+
+        if(manufacturerTextField.getText().equals("Dell")){
+                //najechanie i wcisniecie comboboxa
+                klikniecieNaPrzycisk(bot, 800, 40, 1000);
+
+                //przestawienie comboboxa
+                klikniecieNaPrzycisk(bot, 800, 95, 10);
+
+        }
+
+        if(manufacturerTextField.getText().equals("Asus")){
+            //najechanie i wcisniecie comboboxa
+            klikniecieNaPrzycisk(bot, 800, 40, 1000);
+
+            //przestawienie comboboxa
+            klikniecieNaPrzycisk(bot, 800, 115, 10);
+
+        }
+
+        if(manufacturerTextField.getText().equals("Fujitsu")){
+            //najechanie i wcisniecie comboboxa
+            klikniecieNaPrzycisk(bot, 800, 40, 1000);
+
+            //przestawienie comboboxa
+            klikniecieNaPrzycisk(bot, 800, 145, 10);
+
+        }
+
+        if(manufacturerTextField.getText().equals("Huawei")){
+            //najechanie i wcisniecie comboboxa
+            klikniecieNaPrzycisk(bot, 800, 40, 1000);
+
+            //przestawienie comboboxa
+            klikniecieNaPrzycisk(bot, 800, 175, 10);
+
+        }
+
+        if(manufacturerTextField.getText().equals("MSI")){
+            //najechanie i wcisniecie comboboxa
+            klikniecieNaPrzycisk(bot, 800, 40, 1000);
+
+            //przestawienie comboboxa
+            klikniecieNaPrzycisk(bot, 800, 205, 10);
+
+        }
+
+        if(manufacturerTextField.getText().equals("Sony")){
+            //najechanie i wcisniecie comboboxa
+            klikniecieNaPrzycisk(bot, 800, 40, 1000);
+
+            //przestawienie comboboxa
+            klikniecieNaPrzycisk(bot, 800, 235, 10);
+
+        }
+        bot.delay(10000);
+        //przycisniecie liczba laptopow producenta
+        klikniecieNaPrzycisk(bot, 1000, 40, 10);
     }
 
     private void klikniecieNaPrzycisk(Robot bot, int i2, int i3, int i4) {

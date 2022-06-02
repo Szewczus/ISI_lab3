@@ -7,8 +7,8 @@
         <discType>SSD</discType>
         <graphicCardMemory>1GB</graphicCardMemory>
         <graphicCardName>intel HD Graphics 4000</graphicCardName>
-        <manufacturer>ewus</manufacturer>
-        <matrixTexture>blyszczaca</matrixTexture>
+        <manufacturer>Dell</manufacturer>
+        <matrixTexture>matowa</matrixTexture>
         <os>Windows 7 Home</os>
         <physicalCores>4</physicalCores>
         <processorName>intel i7</processorName>
@@ -52,13 +52,13 @@
         <touch>tak</touch>
     </laptop>
     <laptop>
-        <clockSpeed>2400</clockSpeed>
+        <clockSpeed>15gb</clockSpeed>
         <discReader>brak</discReader>
         <discSize>24GB</discSize>
         <discType>HDD</discType>
         <graphicCardMemory></graphicCardMemory>
         <graphicCardName>NVIDIA GeForce GTX 1050</graphicCardName>
-        <manufacturer>Huawei</manufacturer>
+        <manufacturer>dell</manufacturer>
         <matrixTexture>matowa</matrixTexture>
         <os></os>
         <physicalCores>4</physicalCores>
