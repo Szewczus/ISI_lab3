@@ -139,28 +139,29 @@ public class Controller implements Initializable {
                     }
                     i++;
                 }
-//                if(manufacturerCheckbox.isSelected()){
-//                    moveToTableRecord(bot, record, 0);
-//                    sendKeys(bot, manufacturerTextField.getText());
-//                }
-//                if(screenSizeCheckbox.isSelected()){
-//                    moveToTableRecord(bot, record, 1);
-//                    sendKeys(bot, screenSizeTextField.getText());
-//                }
-//                if(resolutionCheckbox.isSelected()){
-//                    moveToTableRecord(bot, record, 2);
-//                    sendKeys(bot, resolutionTextField.getText());
-//                }
-//                if(matrixTypeCheckbox.isSelected()){
-//                    moveToTableRecord(bot, record, 3);
-//                    sendKeys(bot, manufacturerTextField.getText());
-//                }
+                if(additionalSaveToXMLCheckbox.isSelected()){
+                    moveToExportToXML(bot);
 
+                    bot.mouseMove(1000, 440);
+                    bot.delay(100);
+                    bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+                    bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+                    bot.delay(100);
+
+                }
 
             } catch (AWTException e) {
                 e.printStackTrace();
             }
         });
+    }
+
+    private void moveToExportToXML(Robot bot) {
+        bot.mouseMove(600, 440);
+        bot.delay(100);
+        bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+        bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+        bot.delay(100);
     }
 
     private void fillListCheckboxes() {
@@ -200,11 +201,13 @@ public class Controller implements Initializable {
     }
 
     private void moveToTableRecord(Robot bot, int record, int kolumna) {
-        bot.mouseMove(20+100* kolumna, 495+25* record);
+        bot.mouseMove(20+110* kolumna, 494+25* record);
+        bot.delay(100);
         bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
         bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
         bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
         bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+        bot.delay(100);
     }
 
     void sendKeys(Robot robot, String keys) {
@@ -219,9 +222,8 @@ public class Controller implements Initializable {
 //                robot.delay(100);
 //            }
             robot.keyPress(keyCode);
-            robot.delay(100);
             robot.keyRelease(keyCode);
-            robot.delay(100);
+            robot.delay(10);
         }
         robot.keyPress(KeyEvent.VK_ENTER);
     }

@@ -65,7 +65,8 @@ public class DOMBuider {
         JAXBContext ctx = JAXBContext.newInstance(DataList.class);
         Marshaller marshaller = ctx.createMarshaller();
         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-        File file = chooseFile();
+        //File file = chooseFile();
+        File file = new File("E:/studia/3_semestr_mgr/ISI/lab3/robot_wyniki.xml");
         marshaller.marshal(dataList, file);
     }
 

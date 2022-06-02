@@ -170,7 +170,7 @@ public class Controller implements Initializable {
         zapisz_xml.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                wczytajDaneZPlikuXML();
+                wczytajDaneDOPlikuXML();
             }
         });
 
@@ -317,7 +317,7 @@ public class Controller implements Initializable {
     }
 
 
-    private List<Data> wczytajDaneZPlikuXML(){
+    private List<Data> wczytajDaneDOPlikuXML(){
         List<Data> data = tableView.getItems();
         DataList dataList = new DataList(data);
         DOMBuider domBuider = new DOMBuider();
