@@ -7,14 +7,14 @@
         <discType>SSD</discType>
         <graphicCardMemory>1GB</graphicCardMemory>
         <graphicCardName>intel HD Graphics 4000</graphicCardName>
-        <manufacturer>ku</manufacturer>
-        <matrixTexture>tek</matrixTexture>
+        <manufacturer>ewus</manufacturer>
+        <matrixTexture>blyszczaca</matrixTexture>
         <os>Windows 7 Home</os>
         <physicalCores>4</physicalCores>
         <processorName>intel i7</processorName>
         <ram>8GB</ram>
-        <resolution>bar</resolution>
-        <screenSize>ku"</screenSize>
+        <resolution></resolution>
+        <screenSize>12"</screenSize>
         <touch>nie</touch>
     </laptop>
     <laptop>

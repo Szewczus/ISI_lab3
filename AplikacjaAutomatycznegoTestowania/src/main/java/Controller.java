@@ -147,47 +147,27 @@ public class Controller implements Initializable {
                 if(!matrixTypeTextField.getText().equals("")){
                     if(matrixTypeTextField.getText().equals("blyszczaca")){
                         //najechanie i wcisniecie comboboxa
-                        bot.mouseMove(150, 40);
-                        bot.delay(10);
-                        bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
-                        bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-                        bot.delay(100);
+                        klikniecieNaPrzycisk(bot, 150, 40, 10);
 
                         //przestawienie comboboxa
-                        bot.mouseMove(150, 95);
-                        bot.delay(1000);
-                        bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
-                        bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-                        bot.delay(100);
+                        klikniecieNaPrzycisk(bot, 150, 95, 1000);
 
                     }
                     else {
 
                         if(matrixTypeTextField.getText().equals("matowa")){
                             //najechanie i wcisniecie comboboxa
-                            bot.mouseMove(150, 40);
-                            bot.delay(10);
-                            bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
-                            bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-                            bot.delay(100);
+                            klikniecieNaPrzycisk(bot, 150, 40, 10);
 
                             //przestawienie comboboxa
-                            bot.mouseMove(150, 80);
-                            bot.delay(1000);
-                            bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
-                            bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-                            bot.delay(100);
+                            klikniecieNaPrzycisk(bot, 150, 80, 1000);
 
                         }
 
                     }
 
                     //klikniecie przycisku "lista laptopow z określoną matyrycą"
-                    bot.mouseMove(300, 40);
-                    bot.delay(10);
-                    bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
-                    bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-                    bot.delay(100);
+                    klikniecieNaPrzycisk(bot, 300, 40, 10);
                 }
 
             } catch (AWTException e) {
@@ -196,20 +176,20 @@ public class Controller implements Initializable {
         });
     }
 
-    private void moveToExportToDB(Robot bot) {
-        bot.mouseMove(1000, 440);
-        bot.delay(100);
+    private void klikniecieNaPrzycisk(Robot bot, int i2, int i3, int i4) {
+        bot.mouseMove(i2, i3);
+        bot.delay(i4);
         bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
         bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
         bot.delay(100);
     }
 
+    private void moveToExportToDB(Robot bot) {
+        klikniecieNaPrzycisk(bot, 1000, 440, 100);
+    }
+
     private void moveToExportToXML(Robot bot) {
-        bot.mouseMove(600, 440);
-        bot.delay(100);
-        bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
-        bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-        bot.delay(100);
+        klikniecieNaPrzycisk(bot, 600, 440, 100);
     }
 
     private void fillListCheckboxes() {
