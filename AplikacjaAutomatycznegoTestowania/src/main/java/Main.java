@@ -11,10 +11,10 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
 
         Parent root = FXMLLoader.load(getClass().getResource("/sample.fxml"));
-        primaryStage.setTitle("Integracja systemów - Aplikacja klienta - Ewa Szewczak");
-        primaryStage.setScene(new Scene(root, 1800, 340));
-        primaryStage.setX(0);
-        primaryStage.setY(0);
+        primaryStage.setTitle("Integracja systemów - Aplikacja automatycznego testowania - Ewa Szewczak");
+        primaryStage.setScene(new Scene(root, 420, 700));
+        primaryStage.setX(1490);
+        primaryStage.setY(400);
         primaryStage.show();
     }
 

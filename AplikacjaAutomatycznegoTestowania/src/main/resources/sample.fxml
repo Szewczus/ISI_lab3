@@ -1,0 +1,209 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.control.CheckBox?>
+<VBox fx:controller="Controller" xmlns:fx="http://javafx.com/fxml" prefHeight="431.0" prefWidth="409.0" spacing="20.0" fx:id="rootVBox">
+    <children>
+        <HBox spacing="20">
+            <children>
+                <GridPane>
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="140.0" prefWidth="120.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="140.0" prefWidth="120.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label text="Który rekord ma zostać zmodyfikowany?" GridPane.columnIndex="0" GridPane.rowIndex="0" minWidth="250"/>
+                        <TextField  GridPane.columnIndex="2" GridPane.rowIndex="0" fx:id="modifyRecord"/>
+                    </children>
+                </GridPane>
+            </children>
+        </HBox>
+        <HBox>
+            <children>
+                <GridPane>
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="140.0" prefWidth="120.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="140.0" prefWidth="120.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="140.0" prefWidth="120.0" />
+
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label text="Cecha" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                        <Label text="Czy zmodyfikować? " GridPane.columnIndex="1" GridPane.rowIndex="0"  />
+                        <Label text="Wartość" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+
+                        <Label text="Nazwa prodcenta"  GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                        <HBox  GridPane.columnIndex="1" GridPane.rowIndex="2" alignment="CENTER" >
+                            <children >
+                                <CheckBox fx:id="manufacturerCheckbox" />
+                            </children>
+                        </HBox>
+                        <TextField  GridPane.columnIndex="2" GridPane.rowIndex="2" fx:id="manufacturerTextField"/>
+
+                        <Label text="Wielkość matrycy"  GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                        <HBox  GridPane.columnIndex="1" GridPane.rowIndex="3" alignment="CENTER" >
+                            <children >
+                                <CheckBox fx:id="screenSizeCheckbox" />
+                            </children>
+                        </HBox>
+                        <TextField  GridPane.columnIndex="2" GridPane.rowIndex="3" fx:id="screenSizeTextField"/>
+
+                        <Label text="Rozdzielczość"  GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                        <HBox  GridPane.columnIndex="1" GridPane.rowIndex="4" alignment="CENTER" >
+                            <children >
+                                <CheckBox fx:id="resolutionCheckbox" />
+                            </children>
+                        </HBox>
+                        <TextField  GridPane.columnIndex="2" GridPane.rowIndex="4" fx:id="resolutionTextField"/>
+
+                        <Label text="Typ matrycy"  GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                        <HBox  GridPane.columnIndex="1" GridPane.rowIndex="5" alignment="CENTER" >
+                            <children >
+                                <CheckBox fx:id="matrixTypeCheckbox" />
+                            </children>
+                        </HBox>
+                        <TextField  GridPane.columnIndex="2" GridPane.rowIndex="5" fx:id="matrixTypeTextField"/>
+
+                        <Label text="Procesor"  GridPane.columnIndex="0" GridPane.rowIndex="6" />
+                        <HBox  GridPane.columnIndex="1" GridPane.rowIndex="6" alignment="CENTER" >
+                            <children >
+                                <CheckBox fx:id="processorNameCheckbox" />
+                            </children>
+                        </HBox>
+                        <TextField  GridPane.columnIndex="2" GridPane.rowIndex="6" fx:id="processorNameTextField"/>
+
+                        <Label text="Liczba rdzeni fizycznych"  GridPane.columnIndex="0" GridPane.rowIndex="7" />
+                        <HBox  GridPane.columnIndex="1" GridPane.rowIndex="7" alignment="CENTER" >
+                            <children >
+                                <CheckBox fx:id="physicalCoresNameCheckbox" />
+                            </children>
+                        </HBox>
+                        <TextField  GridPane.columnIndex="2" GridPane.rowIndex="7" fx:id="physicalCoresTextField"/>
+
+                        <Label text="Takowanie"  GridPane.columnIndex="0" GridPane.rowIndex="8" />
+                        <HBox  GridPane.columnIndex="1" GridPane.rowIndex="8" alignment="CENTER" >
+                            <children >
+                                <CheckBox fx:id="clockSpeedCheckbox" />
+                            </children>
+                        </HBox>
+                        <TextField  GridPane.columnIndex="2" GridPane.rowIndex="8" fx:id="clockSpeedTextField"/>
+
+                        <Label text="RAM"  GridPane.columnIndex="0" GridPane.rowIndex="9" />
+                        <HBox  GridPane.columnIndex="1" GridPane.rowIndex="9" alignment="CENTER" >
+                            <children >
+                                <CheckBox fx:id="ramCheckbox" />
+                            </children>
+                        </HBox>
+                        <TextField  GridPane.columnIndex="2" GridPane.rowIndex="9" fx:id="ramTextField"/>
+
+                        <Label text="Pojemność dysku"  GridPane.columnIndex="0" GridPane.rowIndex="10" />
+                        <HBox  GridPane.columnIndex="1" GridPane.rowIndex="10" alignment="CENTER" >
+                            <children >
+                                <CheckBox fx:id="discSizeCheckbox" />
+                            </children>
+                        </HBox>
+                        <TextField  GridPane.columnIndex="2" GridPane.rowIndex="10" fx:id="discSizeTextField"/>
+
+                        <Label text="Typ dysku"  GridPane.columnIndex="0" GridPane.rowIndex="11" />
+                        <HBox  GridPane.columnIndex="1" GridPane.rowIndex="11" alignment="CENTER" >
+                            <children >
+                                <CheckBox fx:id="discTypeCheckbox" />
+                            </children>
+                        </HBox>
+                        <TextField  GridPane.columnIndex="2" GridPane.rowIndex="11" fx:id="discTypeTextField"/>
+
+                        <Label text="Karta graficzna"  GridPane.columnIndex="0" GridPane.rowIndex="12" />
+                        <HBox  GridPane.columnIndex="1" GridPane.rowIndex="12" alignment="CENTER" >
+                            <children >
+                                <CheckBox fx:id="graphicCardNameCheckbox" />
+                            </children>
+                        </HBox>
+                        <TextField  GridPane.columnIndex="2" GridPane.rowIndex="12" fx:id="graphicCardNameTextField"/>
+
+                        <Label text="Pamięć karty graficznej"  GridPane.columnIndex="0" GridPane.rowIndex="13" />
+                        <HBox  GridPane.columnIndex="1" GridPane.rowIndex="13" alignment="CENTER" >
+                            <children >
+                                <CheckBox fx:id="graphicCardMemoryCheckbox" />
+                            </children>
+                        </HBox>
+                        <TextField  GridPane.columnIndex="2" GridPane.rowIndex="13" fx:id="graphicCardMemoryTextField"/>
+
+                        <Label text="System operacyjny"  GridPane.columnIndex="0" GridPane.rowIndex="14" />
+                        <HBox  GridPane.columnIndex="1" GridPane.rowIndex="14" alignment="CENTER" >
+                            <children >
+                                <CheckBox fx:id="osCheckbox" />
+                            </children>
+                        </HBox>
+                        <TextField  GridPane.columnIndex="2" GridPane.rowIndex="14" fx:id="osTextField"/>
+
+                        <Label text="Napęd optyczny"  GridPane.columnIndex="0" GridPane.rowIndex="15" />
+                        <HBox  GridPane.columnIndex="1" GridPane.rowIndex="15" alignment="CENTER" >
+                            <children >
+                                <CheckBox fx:id="discReaderCheckbox" />
+                            </children>
+                        </HBox>
+                        <TextField  GridPane.columnIndex="2" GridPane.rowIndex="15" fx:id="discReaderTextField"/>
+
+
+                        <HBox GridPane.columnIndex="0" GridPane.rowIndex="16">
+                            <children>
+                                <Label text="Czy wykonać dodatkowy zapis do xml?" minWidth="100" wrapText="true"  fx:id="additionalSaveToXMLLabel"/>
+                            </children>
+                        </HBox>
+                        <HBox  GridPane.columnIndex="1" GridPane.rowIndex="16" alignment="CENTER" >
+                            <children >
+                                <CheckBox fx:id="additionalSaveToXMLCheckbox" />
+                            </children>
+                        </HBox>
+                        <HBox  GridPane.columnIndex="2" GridPane.rowIndex="16">
+                            <children>
+
+                            </children>
+                        </HBox>
+
+                        <HBox  GridPane.columnIndex="0" GridPane.rowIndex="17"/>
+                        <HBox  GridPane.columnIndex="1" GridPane.rowIndex="17"/>
+                        <Button GridPane.columnIndex="2" GridPane.rowIndex="17" fx:id="wykonaj" minWidth="140" text="Wykonaj" style="-fx-background-color: #f5f3bc; -fx-border-color: #0f0f0e"/>
+
+                    </children>
+                </GridPane>
+            </children>
+        </HBox>
+    </children>
+
+</VBox>
+

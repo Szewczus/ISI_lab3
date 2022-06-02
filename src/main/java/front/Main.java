@@ -18,7 +18,9 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(url);
         //Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("E:\\studia\\3_semestr_mgr\\ISI\\lab3\\src\\main\\resources\\sample.fxml")));
         primaryStage.setTitle("Integracja systemów - Ewa Szewczak");
-        primaryStage.setScene(new Scene(root, 900, 475));
+        primaryStage.setScene(new Scene(root, 1480, 475));
+        primaryStage.setX(0);
+        primaryStage.setY(400);
         primaryStage.show();
     }
 
