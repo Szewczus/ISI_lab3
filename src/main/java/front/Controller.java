@@ -38,8 +38,8 @@ public class Controller implements Initializable {
     @FXML
     private TableView tableView;
 
-    @FXML
-    private GridPane miejsce_na_dane;
+//    @FXML
+//    private GridPane miejsce_na_dane;
 
     @FXML
     private GridPane miejsce_na_przyciski;
@@ -86,6 +86,7 @@ public class Controller implements Initializable {
             j++;
         }
         tableView.setMinWidth(500);
+        tableView.setMinHeight(500);
 
 
 //        for(int i=0; i<nazwy_kolumn.length; i++){
@@ -118,7 +119,7 @@ public class Controller implements Initializable {
         zapisz_txt.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                miejsce_na_dane.setVisible(true);
+                //miejsce_na_dane.setVisible(true);
                 List <Data> danetxtList = tableView.getItems();
                 String absolutePth = chooseFile();
                 FileWriter w = null;
@@ -280,7 +281,8 @@ public class Controller implements Initializable {
 
     private List<Data> wczytajDaneZPlikuTXT() {
         List<Data> data = new ArrayList<>();
-        String absolutePath = chooseFile();
+        //String absolutePath = chooseFile();
+        String absolutePath = "E:/studia/3_semestr_mgr/ISI/lab3/katalog.txt";
         try(BufferedReader br = new BufferedReader(new FileReader(absolutePath))) {
             String line = br.readLine();
             while (line != null) {

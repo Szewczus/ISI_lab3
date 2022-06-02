@@ -24,3 +24,7 @@
 2022-06-02 09:06:53.281  INFO 29632 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2022-06-02 09:06:53.729  INFO 29632 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
 2022-06-02 09:06:53.738  INFO 29632 --- [restartedMain] ewa.example.demo.DemoApplication         : Started DemoApplication in 5.394 seconds (JVM running for 6.522)
+2022-06-02 10:31:16.694  INFO 29632 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-06-02 10:31:16.701  INFO 29632 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-06-02 10:31:16.732  INFO 29632 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-06-02 10:31:16.746  INFO 29632 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

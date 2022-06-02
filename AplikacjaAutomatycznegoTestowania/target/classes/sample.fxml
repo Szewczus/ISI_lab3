@@ -197,7 +197,7 @@
 
                         <HBox  GridPane.columnIndex="0" GridPane.rowIndex="17"/>
                         <HBox  GridPane.columnIndex="1" GridPane.rowIndex="17"/>
-                        <Button GridPane.columnIndex="2" GridPane.rowIndex="17" fx:id="wykonaj" minWidth="140" text="Wykonaj" style="-fx-background-color: #f5f3bc; -fx-border-color: #0f0f0e"/>
+                        <Button GridPane.columnIndex="2" GridPane.rowIndex="17" fx:id="wykonajButton" minWidth="140" text="Wykonaj" style="-fx-background-color: #f5f3bc; -fx-border-color: #0f0f0e"/>
 
                     </children>
                 </GridPane>

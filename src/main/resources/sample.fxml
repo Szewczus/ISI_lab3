@@ -24,8 +24,8 @@
         </TableView>
 
 
-        <GridPane fx:id="miejsce_na_dane">
-        </GridPane>
+<!--        <GridPane fx:id="miejsce_na_dane">-->
+<!--        </GridPane>-->
 
         <GridPane fx:id="miejsce_na_przyciski">
             <children>
